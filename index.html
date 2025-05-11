@@ -1,56 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- ─────────────────── Meta & Title ─────────────────── -->
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Pradip Sapkota – Cybersecurity student & Finance minor building secure, data‑driven solutions."/>
     <title>Pradip Sapkota – Cybersecurity & Finance</title>
-
-    <!-- ─────────────────── Google Fonts ─────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-
-    <!-- ─────────────────── Icon Pack (Font Awesome 6) ─────────────────── -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXREp2uU2dAbOe+tfHcV0Kj1p6Sg9b9N0vKtu8f5y3R0Y5Yk9jwF9B+PzQjv87TxXYnB9mAA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
-    <!-- ─────────────────── Theme & Layout Stylesheets ─────────────────── -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-RXf+QSDCUQs6xjzYk4WzXLgS4z5SR1oFbqF05f5gAc1mIoNmOzL+yFJ4Ew5dhpNhAb9YbChFz1aQ6rxWke8fZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/thm-theme.css"/>
     <link rel="stylesheet" href="css/animations.css"/>
     <link rel="stylesheet" href="css/style.css"/>
-
-    <!-- ─────────────────── Inline Essentials ─────────────────── -->
     <style>
-      /* Smooth scrolling for anchor links */
       html{scroll-behavior:smooth}
-
-      /* Basic styling for the navigation logo - Adjust as needed */
-      .nav-logo {
-        height: 40px; /* Example height, adjust to fit your logo */
-        width: auto;
-        vertical-align: middle; /* Helps align with text if any */
-      }
+      .nav-logo { height: 40px; width: auto; vertical-align: middle; }
     </style>
   </head>
   <body>
+
     <!-- ============================== Navigation ============================== -->
     <header class="navigation">
       <a class="nav-brand animate-on-load" href="#home">
-        <img src="path/to/logo.png" alt="Logo" style="height: 30px; vertical-align: middle;" />
         <span class="font-hacker" style="margin-left: 8px;">Portfolio</span>
       </a>
-
-      <!-- hamburger toggle for small screens -->
       <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
         <span class="hamburger" aria-hidden="true"></span>
       </button>
-
       <nav id="primary-navigation" class="nav-menu" role="navigation">
         <a class="nav-link" href="#home">Home</a>
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#experience">Experiences</a>
         <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="blog.html">Blog</a>
         <a class="nav-link" href="#contact">Contact</a>
@@ -59,7 +42,8 @@
 
     <!-- ============================== Hero Section ============================== -->
     <section id="home" class="hero-section" aria-label="Introduction">
-      <div class="hero-content">
+      <canvas id="matrix-canvas" class="hero-background-canvas"></canvas>
+      <div class="hero-content"> 
         <header class="hero-text">
           <h1 class="animate-typing">Hi, I'm <span class="highlight">Pradip Sapkota</span></h1>
           <p class="subtitle animate-fade-in-up delay-1s">
@@ -68,7 +52,7 @@
           </p>
           <div class="hero-buttons animate-fade-in-up delay-2s">
             <a class="btn btn-primary" href="#projects">View Projects</a>
-            <a class="btn btn-secondary" href="assets/Pradip_Sapkota_Resume.pdf" target="_blank" rel="noopener">My Resume <i class="fas fa-download" aria-hidden="true"></i></a>
+            <a class="btn btn-secondary" href="assets/Pradip_Sapkota_Resume.pdf" target="_blank" rel="noopener">My Resume <i class="fas fa-download" aria-hidden="true"></i></a>
           </div>
         </header>
         <figure class="hero-image-container animate-fade-in-right delay-0-5s">
@@ -83,7 +67,7 @@
     <!-- ============================== About Section ============================== -->
     <section id="about" class="section-padding" aria-labelledby="about-heading">
       <h2 id="about-heading" class="section-heading animate-on-scroll">
-        <span class="font-hacker"> About Me </span>
+        <span class="font-hacker">About Me</span>
       </h2>
       <div class="about-content animate-on-scroll">
         <div class="about-text">
@@ -92,7 +76,6 @@
           <p>Beyond academics and projects, I enjoy participating in CTFs, exploring new programming languages, and following financial markets.</p>
         </div>
         <figure class="about-image animate-on-scroll delay-0-5s">
-          <!-- Ensure about-me-graphic.png exists in images/ -->
           <img src="images/about-me-graphic.png" alt="Cybersecurity and finance illustration" width="300" height="300" style="border-radius:8px;opacity:.8" loading="lazy"/>
         </figure>
       </div>
@@ -104,239 +87,47 @@
         <span class="font-hacker">My Arsenal (Skills)</span>
       </h2>
       <div class="skills-grid" role="list">
-
-        <!-- Languages & Scripting -->
         <div class="skill-card animate-on-scroll" role="listitem">
           <h3><i class="fas fa-terminal" aria-hidden="true"></i> Languages & Scripting</h3>
           <ul class="skills-list-progress">
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Python</span>
-                <span class="skill-percentage">90%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="90"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">C</span>
-                <span class="skill-percentage">70%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="70"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Java</span>
-                <span class="skill-percentage">75%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="75"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Bash</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="85"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">SQL</span>
-                <span class="skill-percentage">70%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="70"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">HTML / CSS / JavaScript</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="80"></div>
-              </div>
-            </li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Python</span><span class="skill-percentage">90%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="90"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">C</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Java</span><span class="skill-percentage">75%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="75"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Bash</span><span class="skill-percentage">85%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="85"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">SQL</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">HTML / CSS / JavaScript</span><span class="skill-percentage">80%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="80"></div></div></li>
           </ul>
         </div>
-
-        <!-- Cybersecurity -->
         <div class="skill-card animate-on-scroll delay-0-2s" role="listitem">
           <h3><i class="fas fa-shield-virus" aria-hidden="true"></i> Cybersecurity</h3>
           <ul class="skills-list-progress">
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Nessus / OpenVAS</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="80"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Burp Suite</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="85"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Nmap</span>
-                <span class="skill-percentage">90%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="90"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Wireshark</span>
-                <span class="skill-percentage">75%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="75"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Metasploit Framework</span>
-                <span class="skill-percentage">70%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="70"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Digital Forensics (Autopsy)</span>
-                <span class="skill-percentage">65%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="65"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">SIEM (Splunk - Basic)</span>
-                <span class="skill-percentage">60%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="60"></div>
-              </div>
-            </li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Nessus / OpenVAS</span><span class="skill-percentage">80%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="80"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Burp Suite</span><span class="skill-percentage">85%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="85"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Nmap</span><span class="skill-percentage">90%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="90"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Wireshark</span><span class="skill-percentage">75%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="75"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Metasploit Framework</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Digital Forensics (Autopsy)</span><span class="skill-percentage">65%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="65"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">SIEM (Splunk - Basic)</span><span class="skill-percentage">60%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="60"></div></div></li>
           </ul>
         </div>
-
-        <!-- Cloud & DevOps -->
         <div class="skill-card animate-on-scroll delay-0-4s" role="listitem">
           <h3><i class="fas fa-cloud" aria-hidden="true"></i> Cloud & DevOps</h3>
           <ul class="skills-list-progress">
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">AWS (EC2, S3, IAM)</span>
-                <span class="skill-percentage">70%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="70"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Git & GitHub</span>
-                <span class="skill-percentage">90%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="90"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Linux (Ubuntu, Kali)</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="85"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Docker (Basic)</span>
-                <span class="skill-percentage">60%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="60"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Terraform (Learning)</span>
-                <span class="skill-percentage">40%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="40"></div>
-              </div>
-            </li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">AWS (EC2, S3, IAM)</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Git & GitHub</span><span class="skill-percentage">90%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="90"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Linux (Ubuntu, Kali)</span><span class="skill-percentage">85%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="85"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Docker (Basic)</span><span class="skill-percentage">60%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="60"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Terraform (Learning)</span><span class="skill-percentage">40%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="40"></div></div></li>
           </ul>
         </div>
-
-        <!-- Finance & Analytics -->
         <div class="skill-card animate-on-scroll delay-0-6s" role="listitem">
           <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Finance & Analytics</h3>
           <ul class="skills-list-progress">
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Financial Modeling (Excel)</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="80"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Power BI / Tableau (Basic)</span>
-                <span class="skill-percentage">65%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="65"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Risk Assessment</span>
-                <span class="skill-percentage">75%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="75"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Investment Analysis (Concepts)</span>
-                <span class="skill-percentage">70%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="70"></div>
-              </div>
-            </li>
-            <li class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Bloomberg Terminal (Exposure)</span>
-                <span class="skill-percentage">50%</span>
-              </div>
-              <div class="progress-bar-container">
-                <div class="progress-bar" data-progress="50"></div>
-              </div>
-            </li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Financial Modeling (Excel)</span><span class="skill-percentage">80%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="80"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Power BI / Tableau (Basic)</span><span class="skill-percentage">65%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="65"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Risk Assessment</span><span class="skill-percentage">75%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="75"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Investment Analysis (Concepts)</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
+            <li class="skill-item"><div class="skill-info"><span class="skill-name">Bloomberg Terminal (Exposure)</span><span class="skill-percentage">50%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="50"></div></div></li>
           </ul>
         </div>
       </div>
@@ -345,25 +136,31 @@
     <!-- ============================== Experience Section ============================== -->
     <section id="experience" class="section-padding" aria-labelledby="experience-heading">
       <h2 id="experience-heading" class="section-heading animate-on-scroll">
-        <span class="font-hacker"> Career Trajectory</span>
+        <span class="font-hacker">Career Trajectory</span>
       </h2>
       <div class="timeline" role="list">
-        <!-- Item 1 -->
         <article class="timeline-item animate-on-scroll" role="listitem">
-          <div class="timeline-icon" aria-hidden="true"><i class="fas fa-flask"></i></div>
+          <<div class="timeline-icon" aria-hidden="true"><i class="fas fa-desktop"></i></div>
           <div class="timeline-content">
-            <h3>Research Assistant</h3>
-            <p class="experience-details"><em>UNT Health Science Center | May 2023 – Present</em></p>
-            <p>Contribute to neuroscience research by managing and analyzing large datasets, developing Python scripts for data processing, and maintaining lab computing infrastructure. Enhanced data processing efficiency by 20%.</p>
+            <h3>IT And Support Support</h3>
+            <p class="experience-details"><em>Midas Stock Broking Company LTD | Apr 2022 – Aug 2022</em></p>
+            <p>Assisted with IT help desk support and software operations, ensuring smooth technical functionality for trading platforms, handling client queries, and performing system maintenance to support daily brokerage activities.</p>
           </div>
         </article>
-        <!-- Item 2 -->
         <article class="timeline-item animate-on-scroll" role="listitem">
           <div class="timeline-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></div>
           <div class="timeline-content">
-            <h3>Assistant Manager</h3>
-            <p class="experience-details"><em>Global Victors | Jan 2020 – Apr 2023</em></p>
+            <h3>ABC Position</h3>
+            <p class="experience-details"><em>ABC Company | Jan 2020 – Apr 2023</em></p>
             <p>Led a team in direct sales and network marketing. Developed strategies for customer acquisition and retention, coordinated team activities, and managed inventory. Awarded "Top Performer" twice.</p>
+          </div>
+        </article>
+        <article class="timeline-item animate-on-scroll" role="listitem">
+          <div class="timeline-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></div>
+          <div class="timeline-content">
+            <h3>XYZ </h3>
+            <p class="experience-details"><em>XYZ | Apr 2022 – Aug 2022</em></p>
+            <p>Assisted with IT help desk support and software operations, ensuring smooth technical functionality for trading platforms, handling client queries, and performing system maintenance to support daily brokerage activities.</p>
           </div>
         </article>
       </div>
@@ -375,11 +172,9 @@
         <span class="font-hacker">Featured Projects</span>
       </h2>
       <div class="projects-grid" role="list">
-        <!-- Project 1 -->
         <article class="project-card animate-on-scroll" role="listitem">
           <figure class="project-image">
-            <!-- Ensure vulnx-thumb.png exists in images/ -->
-            <img src="images/vulnx-thumb.png" alt="Screenshot of VulnX vulnerability scanner" loading="lazy"/>
+            <img src="images/vulnx-thumb.png.png" alt="Screenshot of VulnX vulnerability scanner" loading="lazy"/>
           </figure>
           <div class="project-content">
             <h3>VulnX – Vulnerability Scanner</h3>
@@ -390,26 +185,35 @@
             </div>
           </div>
         </article>
-        <!-- Project 2 -->
         <article class="project-card animate-on-scroll delay-0-2s" role="listitem">
           <figure class="project-image">
-            <!-- Ensure hackdome-thumb.png exists in images/ -->
-            <img src="images/hackdome-thumb.png" alt="Screenshot of HackDome CTF platform" loading="lazy"/>
+            <img src="images/hackdome-thumb.png.png" alt="Screenshot of HackDome CTF platform" loading="lazy"/>
           </figure>
           <div class="project-content">
-            <h3>HackDome – CTF Platform</h3>
+            <h3>HackDome – Multiplayer CTF Platform</h3>
             <p class="project-tags"><span class="tag">WordPress</span> <span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">Stripe</span></p>
             <p>Developed a Capture The Flag platform using WordPress, hosted on AWS with MFA and Stripe integration. Features simulated phishing and SQLi labs.</p>
             <div class="project-links">
-              <a class="btn btn-primary btn-small" href="https://github.com/pradip676/hackdome" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              <a class="btn btn-primary btn-small" href="https://github.com/pradip676/HackDome-Live-CTF" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
             </div>
           </div>
         </article>
-        <!-- Project 3 -->
+        <article class="project-card animate-on-scroll delay-0-2s" role="listitem">
+          <figure class="project-image">
+            <img src="images/jwks-server.png.png" alt="Screenshot of HackDome CTF platform" loading="lazy"/>
+          </figure>
+          <div class="project-content">
+            <h3>Advanced JWKS Server</h3>
+            <p class="project-tags"><span class="tag">Python</span> <span class="tag">AES Encryption</span> <span class="tag">Security</span> <span class="tag">MySQL Lite</span></p>
+            <p>Developed a secure JWKS server with AES-encrypted RSA keys, Argon2 user registration, JWT auth, logging, and optional rate limiting.</p>
+            <div class="project-links">
+              <a class="btn btn-primary btn-small" href="https://github.com/pradip676/Enhanced-JWKS-Auth-Server" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
+          </div>
+        </article>
         <article class="project-card animate-on-scroll delay-0-4s" role="listitem">
           <figure class="project-image">
-            <!-- Ensure cloudvar-thumb.png exists in images/ -->
-            <img src="images/cloudvar-thumb.png" alt="Screenshot of CloudVaR risk dashboard" loading="lazy"/>
+            <img src="images/cloud-var.png" alt="Screenshot of CloudVaR risk dashboard" loading="lazy"/>
           </figure>
           <div class="project-content">
             <h3>CloudVaR – FinSec Risk Dashboard</h3>
@@ -429,19 +233,19 @@
         <span class="font-hacker">Get In Touch</span>
       </h2>
       <div class="contact-content animate-on-scroll">
-        <p>I’m always excited to connect, discuss new projects, or explore opportunities. <br/>Feel free to reach out through any of these channels!</p>
-        <div class="contact-methods" role="list">
-          <a href="mailto:pradipsapkota279@gmail.com" class="contact-link animate-on-scroll delay-0-2s" role="listitem">
-            <i class="fas fa-envelope" aria-hidden="true"></i> <span>pradipsapkota279@gmail.com</span>
+        <p>I’m always excited to connect, discuss new projects, or explore opportunities. <br/>Feel free to reach out!</p>
+        <div class="contact-methods-icons animate-on-scroll delay-0-2s" role="list">
+          <a href="mailto:pradipsapkota279@gmail.com" class="contact-icon-link" aria-label="Email Pradip Sapkota">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
           </a>
-          <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" class="contact-link animate-on-scroll delay-0-4s" rel="noopener" role="listitem">
-            <i class="fab fa-linkedin" aria-hidden="true"></i> <span>linkedin.com/in/pradipsapkota01</span>
+          <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" class="contact-icon-link" aria-label="LinkedIn profile of Pradip Sapkota" rel="noopener">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
           </a>
-          <a href="https://github.com/pradip676" target="_blank" class="contact-link animate-on-scroll delay-0-6s" rel="noopener" role="listitem">
-            <i class="fab fa-github" aria-hidden="true"></i> <span>github.com/pradip676</span>
+          <a href="https://github.com/pradip676" target="_blank" class="contact-icon-link" aria-label="GitHub profile of Pradip Sapkota" rel="noopener">
+            <i class="fab fa-github" aria-hidden="true"></i>
           </a>
         </div>
-        <a class="btn btn-primary cta-button animate-on-scroll delay-0-8s" href="mailto:pradipsapkota279@gmail.com">
+        <a class="btn btn-primary cta-button animate-on-scroll delay-0-8s" href="mailto:pradipsapkota279@gmail.com" style="margin-top: 2.5rem;">
           <i class="fas fa-paper-plane" aria-hidden="true"></i> Send me an Email
         </a>
       </div>
@@ -449,42 +253,40 @@
 
     <!-- ============================== Footer ============================== -->
     <footer class="footer" role="contentinfo">
-      <div class="social-icons" aria-label="Social links">
-        <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
-      </div>
-      <p class="font-hacker">© <span id="currentYear"></span> Pradip Sapkota. All rights reserved.</p>
-    </footer>
+      <div class="social-icons" aria-label="Social and contact links">
+         <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" aria-label="LinkedIn profile of Pradip Sapkota" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+         <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub profile of Pradip Sapkota" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
+         <a href="mailto:pradipsapkota279@gmail.com" aria-label="Email Pradip Sapkota"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+     </div>
+     <p class="font-hacker">© <span id="currentYearFooter"></span> Pradip Sapkota. All rights reserved.</p>
+   </footer>
 
-    <!-- ============================== Scripts ============================== -->
+    <!-- Scripts -->
     <script>
-      // update copyright year
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-      // responsive nav toggle
+      if (document.getElementById('currentYearFooter')) {
+          document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+      }
       const navToggle = document.querySelector('.nav-toggle');
-      const navMenu   = document.getElementById('primary-navigation');
-      navToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('open'); // Toggles 'open' class on navMenu
-        navToggle.classList.toggle('active'); // Toggles 'active' class on the button itself for hamburger animation
-        navToggle.setAttribute('aria-expanded', isOpen);
-        // Optional: Toggle body scroll lock
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-
-      // Close mobile menu when a link is clicked
-      navMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu.classList.contains('open')) {
-                navMenu.classList.remove('open');
-                navToggle.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
-        });
-      });
+      const navMenu = document.getElementById('primary-navigation');
+      if(navToggle && navMenu) {
+          navToggle.addEventListener('click', () => {
+              const isOpen = navMenu.classList.toggle('open');
+              navToggle.classList.toggle('active');
+              navToggle.setAttribute('aria-expanded', isOpen);
+              document.body.style.overflow = isOpen ? 'hidden' : '';
+          });
+          navMenu.querySelectorAll('.nav-link').forEach(link => {
+              link.addEventListener('click', () => {
+                  if (navMenu.classList.contains('open')) {
+                      navMenu.classList.remove('open');
+                      navToggle.classList.remove('active');
+                      navToggle.setAttribute('aria-expanded', 'false');
+                      document.body.style.overflow = '';
+                  }
+              });
+          });
+      }
     </script>
-    <!-- External script for animations and other enhancements -->
-    <script src="js/script.js" defer></script> 
+    <script src="js/script.js" defer></script>
   </body>
 </html>

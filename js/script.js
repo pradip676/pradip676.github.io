@@ -25,6 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
           link.classList.add('active');
         }
       });
+      // --- Dynamic Year in Footer ---
+      const currentYearFooterSpan = document.getElementById('currentYearFooter');
+      if (currentYearFooterSpan) {
+        currentYearFooterSpan.textContent = new Date().getFullYear();
+      }
     }
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink(); // Initial call

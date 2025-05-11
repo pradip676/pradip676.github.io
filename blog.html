@@ -6,24 +6,27 @@
   <title>Blog - Pradip Sapkota</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Ensure correct paths to your CSS files -->
   <link rel="stylesheet" href="css/thm-theme.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Navigation (Same as index.html) -->
+  <!-- Navigation -->
   <header class="navigation">
     <a class="nav-brand animate-on-load" href="index.html#home">
-      <span class="font-hacker"><PradipSapkota /></span>
+      <!-- If using an image logo, replicate it here from index.html -->
+      <!-- <img src="images/your-logo.png" alt="Pradip Sapkota Logo" class="nav-logo"> -->
+      <span class="font-hacker" style="margin-left: 8px;">Portfolio</span> <!-- Or your logo -->
     </a>
-    <button class="nav-toggle" aria-label="toggle navigation">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation-blog" aria-expanded="false">
       <span class="hamburger"></span>
     </button>
-    <nav class="nav-menu">
+    <nav id="primary-navigation-blog" class="nav-menu" role="navigation">
       <a class="nav-link" href="index.html#home">Home</a>
       <a class="nav-link" href="index.html#about">About</a>
       <a class="nav-link" href="index.html#skills">Skills</a>
-      <a class="nav-link" href="index.html#experience">Experience</a>
+      <a class="nav-link" href="index.html#experience">Experiences</a>
       <a class="nav-link" href="index.html#projects">Projects</a>
       <a class="nav-link active" href="blog.html">Blog</a>
       <a class="nav-link" href="index.html#contact">Contact</a>
@@ -31,39 +34,45 @@
   </header>
 
   <!-- Blog Section -->
-  <section id="blog-main" class="section-padding">
+  <main id="blog-main" class="section-padding">
     <div class="container">
       <h2 class="section-heading animate-on-scroll">
-        <span class="font-hacker">// My Thoughts & Insights</span>
+        <span class="font-hacker"> My Thoughts & Insights</span>
       </h2>
       <p class="animate-on-scroll" style="text-align: center; margin-bottom: 40px;">
         Welcome to my blog! Here I'll share articles on cybersecurity, finance, tech trends, and project deep-dives.
       </p>
 
       <div class="blog-grid">
-        <!-- Example Blog Post Card -->
+        <!-- Example Blog Post Card 1 -->
         <article class="blog-post-card animate-on-scroll">
-          <img src="images/blog-post-placeholder.png" alt="Blog post title" class="blog-post-image">
+          <!-- Ensure blog-post-placeholder.png or a specific image exists in images/ -->
+          <img src="images/blog-post-phishing.png" alt="Phishing concept image" class="blog-post-image">
           <div class="blog-post-content">
             <h3 class="blog-post-title">Understanding Phishing Attacks in 2024</h3>
-            <p class="blog-post-meta">Published on: July 20, 2024 <span class="blog-post-category">Cybersecurity</span></p>
-            <p class="blog-post-excerpt">A deep dive into the latest phishing techniques and how to protect yourself and your organization...</p>
-            <a href="#" class="btn btn-secondary btn-small">Read More <i class="fas fa-arrow-right"></i></a>
+            <p class="blog-post-meta">Published on: July 26, 2024 <span class="blog-post-category">Cybersecurity</span></p>
+            <p class="blog-post-excerpt">A deep dive into the latest phishing techniques, how to identify them, and crucial steps to protect yourself and your organization...</p>
+            <!-- MODIFIED LINK -->
+            <a href="blog/post1.html" class="btn btn-secondary btn-small">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- Example Blog Post Card 2 -->
         <article class="blog-post-card animate-on-scroll delay-0-2s">
-          <img src="images/blog-post-placeholder.png" alt="Blog post title" class="blog-post-image">
+          <!-- Ensure blog-post-placeholder.png or a specific image exists in images/ -->
+          <img src="images/blog-post-ai-finance.png" alt="AI in Finance concept image" class="blog-post-image">
           <div class="blog-post-content">
             <h3 class="blog-post-title">The Role of AI in Algorithmic Trading</h3>
-            <p class="blog-post-meta">Published on: July 15, 2024 <span class="blog-post-category">Finance</span></p>
-            <p class="blog-post-excerpt">Exploring how Artificial Intelligence is reshaping financial markets and trading strategies...</p>
-            <a href="#" class="btn btn-secondary btn-small">Read More <i class="fas fa-arrow-right"></i></a>
+            <p class="blog-post-meta">Published on: July 24, 2024 <span class="blog-post-category">Finance & Tech</span></p>
+            <p class="blog-post-excerpt">Exploring how Artificial Intelligence is reshaping financial markets, enhancing trading strategies, and the associated risks...</p>
+            <!-- MODIFIED LINK - Assuming you create post2.html -->
+            <a href="blog/post2.html" class="btn btn-secondary btn-small">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
+        <!-- Coming Soon Card -->
         <article class="blog-post-card animate-on-scroll delay-0-4s">
-          <div class="blog-post-content" style="text-align:center; padding: 40px;">
+          <div class="blog-post-content" style="text-align:center; padding: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 300px;">
             <i class="fas fa-terminal fa-3x" style="margin-bottom: 20px; color: var(--accent-color);"></i>
             <h3>More Content Coming Soon!</h3>
             <p>Stay tuned for more articles and insights.</p>
@@ -71,34 +80,48 @@
         </article>
       </div>
     </div>
-  </section>
+  </main>
 
-  <!-- Footer (Same as index.html) -->
+  <!-- Footer -->
   <footer class="footer">
-     <div class="social-icons">
-        <a href="https://linkedin.com/in/pradip-sapkota" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
+    <div class="social-icons" aria-label="Social and contact links">
+      <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" aria-label="LinkedIn profile of Pradip Sapkota" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub profile of Pradip Sapkota" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="mailto:pradipsapkota279@gmail.com" aria-label="Email Pradip Sapkota"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+  </div>
     <p class="font-hacker">© <span id="currentYearBlog"></span> Pradip Sapkota. All rights reserved.</p>
-    <p>Built with <i class="fas fa-heart" style="color: var(--accent-color);"></i> and a bit of <span class="font-hacker">./code</span></p>
   </footer>
 
   <script>
-    // Basic JS for blog page if needed (e.g., year)
+    // Basic JS for blog page
     if (document.getElementById('currentYearBlog')) {
         document.getElementById('currentYearBlog').textContent = new Date().getFullYear();
     }
-    // Re-use nav toggle from main script if nav is complex, or simplify for blog if separate
+
     const navToggleBlog = document.querySelector('.nav-toggle');
-    const navMenuBlog = document.querySelector('.nav-menu');
+    const navMenuBlog = document.getElementById('primary-navigation-blog'); // Use ID
     if(navToggleBlog && navMenuBlog) {
         navToggleBlog.addEventListener('click', () => {
-            navMenuBlog.classList.toggle('active');
+            const isOpen = navMenuBlog.classList.toggle('open'); // Use 'open' class like in index.html
             navToggleBlog.classList.toggle('active');
+            navToggleBlog.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        // Close mobile menu when a link is clicked
+        navMenuBlog.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenuBlog.classList.contains('open')) {
+                    navMenuBlog.classList.remove('open');
+                    navToggleBlog.classList.remove('active');
+                    navToggleBlog.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            });
         });
     }
 
-    // Basic scroll animations for blog page
+    // Scroll animations for blog page
     const blogElementsToAnimate = document.querySelectorAll('.animate-on-scroll');
     const observerBlog = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -107,7 +130,6 @@
             }
         });
     }, { threshold: 0.1 });
-
     blogElementsToAnimate.forEach(el => observerBlog.observe(el));
   </script>
 </body>

@@ -2,603 +2,630 @@
 
 /* --- General Layout --- */
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  
-  .section-padding {
-    padding: 80px 0;
-  }
-  @media (max-width: 768px) {
-    .section-padding { padding: 60px 0; }
-  }
-  
-  /* --- Navigation --- */
-  .navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: rgba(17, 19, 24, 0.85); /* Semi-transparent dark bg */
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+@media (max-width: 768px) {
+  .section-padding { padding: 60px 0; }
+}
+
+/* --- Navigation --- */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: rgba(17, 19, 24, 0.85); /* Semi-transparent dark bg */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90%; /* Covers 100% due to padding */
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid var(--border-color);
+}
+.nav-brand {
+  font-weight: 700; /* This was already here, good */
+  color: var(--text-color);
+  display: flex; 
+  align-items: center;
+}
+.nav-brand .nav-logo { 
+  height: 40px; 
+  width: auto;  
+  vertical-align: middle; 
+  margin-right: 10px; 
+}
+.nav-brand .font-hacker { /* For "Portfolio" text */
+  font-size: 1.1em;
+  font-weight: 700; /* Explicitly making it bold */
+  /* margin-left: 8px;  If you used this inline, it's fine, or move it here */
+}
+
+.nav-menu { 
+  display: flex;
+  gap: 25px;
+}
+#primary-navigation.nav-menu { 
+   /* Existing flex styles are fine */
+}
+
+.nav-link {
+  font-family: var(--font-secondary);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 5px 0;
+  position: relative;
+  color: var(--text-color-muted);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-color);
+}
+
+.nav-toggle {
+  display: none; 
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001; 
+}
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  left: 0;
+  transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+}
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
+
+.nav-toggle.active .hamburger { background-color: transparent; }
+.nav-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
+.nav-toggle.active .hamburger::after { transform: rotate(-45deg); bottom: 0; }
+
+@media (max-width: 768px) { 
+  #primary-navigation.nav-menu { 
     position: fixed;
     top: 0;
-    left: 0;
-    width: 90%; /* Covers 100% due to padding */
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid var(--border-color);
-  }
-  .nav-brand {
-    /* font-size: 1.5rem; (Kept if you have fallback text) */
-    /* font-weight: 700; */
-    color: var(--text-color);
-    display: flex; /* For vertical alignment of logo */
-    align-items: center;
-  }
-  .nav-brand .nav-logo { /* Styling for the image logo */
-    height: 40px; /* Adjust to your logo's desired height */
-    width: auto;  /* Maintain aspect ratio */
-    vertical-align: middle; /* Good for alignment */
-    margin-right: 10px; /* Optional: space if you add text next to it */
-  }
-  /* Fallback text styling if logo doesn't load, or if you keep the text */
-  .nav-brand .font-hacker {
-    font-size: 1.1em; 
-  }
-
-  .nav-menu { /* This is now #primary-navigation in your HTML */
-    display: flex;
-    gap: 25px;
-  }
-  #primary-navigation.nav-menu { /* More specific selector based on your HTML */
-     /* Existing flex styles are fine */
-  }
-
-  .nav-link {
-    font-family: var(--font-secondary);
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    padding: 5px 0;
-    position: relative;
-    color: var(--text-color-muted);
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease;
-  }
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    width: 100%;
-  }
-  .nav-link:hover,
-  .nav-link.active {
-    color: var(--text-color);
-  }
-  
-  .nav-toggle {
-    display: none; /* Hidden on desktop */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001; /* Above nav-menu when active */
-  }
-  .hamburger {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-color);
-    position: relative;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform transition */
-  }
-  .hamburger::before,
-  .hamburger::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-color);
-    left: 0;
-    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
-  }
-  .hamburger::before { top: -8px; }
-  .hamburger::after { bottom: -8px; }
-  
-  /* Active state for hamburger (from your inline JS) */
-  .nav-toggle.active .hamburger { background-color: transparent; }
-  .nav-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
-  .nav-toggle.active .hamburger::after { transform: rotate(-45deg); bottom: 0; }
-
-  /* Active state for mobile menu (from your inline JS - .nav-menu.open) */
-  @media (max-width: 768px) { /* Keep mobile nav styles within media query */
-    #primary-navigation.nav-menu { /* Using ID from your HTML */
-      position: fixed;
-      top: 0;
-      right: -100%; /* Start off-screen */
-      width: 70%;
-      max-width: 300px;
-      height: 100vh;
-      background-color: var(--secondary-bg-color);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 30px;
-      padding-top: 80px; /* Space for nav brand and toggle */
-      transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-      border-left: 1px solid var(--border-color);
-    }
-    #primary-navigation.nav-menu.open { /* Style for when menu is open */
-      right: 0;
-    }
-    .nav-toggle { display: block; } /* Show toggle on mobile */
-    .nav-link { font-size: 1.1rem; }
-  }
-  
-  /* --- Hero Section --- */
-  .hero-section {
-    min-height: 100vh;
-    display: flex;
+    right: -100%; 
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--secondary-bg-color);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 100px 5% 50px; /* Add padding for nav and scroll indicator */
-    position: relative;
-    background: var(--primary-bg-color); /* fallback */
-  }
-  .hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    width: 100%;
-    max-width: 1000px;
-  }
-  .hero-text { /* This is <header class="hero-text"> in your HTML */
-    flex: 1.5;
-    text-align: left;
-  }
-  .hero-text h1 {
-    margin-bottom: 15px;
-    line-height: 1.2;
-  }
-  .hero-text .subtitle {
-    font-size: 1.2rem;
-    color: var(--text-color-muted);
-    margin-bottom: 30px;
-    max-width: 500px;
-  }
-  .hero-buttons { display: flex; gap: 15px; }
-  .hero-image-container { /* This is <figure class="hero-image-container"> */
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .hero-image {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    border: 5px solid var(--accent-color);
-    box-shadow: 0 0 25px rgba(46, 204, 113, 0.3); /* Using accent color with alpha */
-  }
-  .hero-graphic { color: var(--accent-color); } /* For icon fallback */
-  
-  .scroll-down-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--accent-color);
-    font-size: 1.5rem;
-    opacity: 0.7;
-  }
-  .scroll-down-indicator:hover { opacity: 1; }
-  
-  
-  /* --- About Section --- */
-  #about .container { max-width: 900px; } 
-  .about-content {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start; /* Changed from center to start based on common layouts */
-  }
-  .about-text { flex: 2; }
-  .about-image { /* This is <figure class="about-image"> */
-    flex: 1;
-    text-align: center; /* Or adjust as needed if image isn't centered by default */
-  }
-  .about-image img { /* Target the img tag directly for specific styling */
-     max-width: 300px; /* Already inline, but good to have here for consistency */
-     border-radius: 8px; /* Already inline */
-     opacity: 0.8; /* Already inline */
-  }
-  .about-text p {
-    flex: 2;
-    padding-left: 40px;
-    margin-bottom: 1.5em;
-    color: var(--text-color-muted);
-    font-size: 1.05rem;
-  }
-  
-  /* --- Skills Section --- */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding-top: 80px; 
+    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    border-left: 1px solid var(--border-color);
   }
-  .skill-card h3 {
-    color: var(--accent-color-secondary);
-    margin-bottom: 20px; /* Increased margin for better spacing with progress bars */
-    font-family: var(--font-primary);
+  #primary-navigation.nav-menu.open { 
+    right: 0;
   }
-  .skill-card h3 i {
-    margin-right: 10px;
-    color: var(--accent-color);
-  }
+  .nav-toggle { display: block; } 
+  .nav-link { font-size: 1.1rem; }
+}
 
-  /* NEW: Skills Section - Progress Bar Styling */
-  .skills-list-progress {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* --- Hero Section --- */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 5% 50px;
+  position: relative; /* <<< ADDED for canvas positioning */
+  background: var(--primary-bg-color); 
+  overflow: hidden; /* <<< ADDED to contain canvas */
+}
+.hero-background-canvas { /* <<< NEW for Matrix rain */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Behind hero content */
+}
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  max-width: 1000px;
+  position: relative; /* <<< ADDED for z-index stacking */
+  z-index: 1;       /* <<< ADDED to be above canvas */
+}
+.hero-text { 
+  flex: 1.5;
+  text-align: left;
+}
+.hero-text h1 {
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+.hero-text .subtitle {
+  font-size: 1.2rem;
+  color: var(--text-color-muted);
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+.hero-buttons { display: flex; gap: 15px; }
+.hero-image-container { 
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-image {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  border: 5px solid var(--accent-color);
+  box-shadow: 0 0 25px rgba(46, 204, 113, 0.3); 
+}
+.hero-graphic { color: var(--accent-color); } 
+
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  opacity: 0.7;
+  z-index: 1; /* Ensure it's above canvas if overlapping */
+}
+.scroll-down-indicator:hover { opacity: 1; }
+
+
+/* --- About Section --- */
+#about .container { max-width: 900px; } 
+.about-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start; 
+}
+.about-text { flex: 2; padding-left: 40px;}
+.about-image { 
+  flex: 1;
+  text-align: center; 
+}
+.about-image img { 
+   max-width: 300px; 
+   border-radius: 8px; 
+   opacity: 0.8; 
+}
+.about-text p { /* NOTE: flex:2 was here, it should be on .about-text itself */
+  /* flex: 2; */ /* This property is for flex items, not their children directly. */
+  /* padding-left: 40px; */ /* This seems like an unusual style here, review if intended */
+  margin-bottom: 1.5em;
+  color: var(--text-color-muted);
+  font-size: 1.05rem;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.skill-card h3 {
+  color: var(--accent-color-secondary);
+  margin-bottom: 20px; 
+  font-family: var(--font-primary);
+}
+.skill-card h3 i {
+  margin-right: 10px;
+  color: var(--accent-color);
+}
+.skills-list-progress {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.skill-item {
+  margin-bottom: 20px;
+}
+.skill-item:last-child {
+  margin-bottom: 0;
+}
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-family: var(--font-secondary);
+}
+.skill-name {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  font-weight: 400;
+}
+.skill-percentage {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+.progress-bar-container {
+  width: 100%;
+  background-color: var(--border-color);
+  border-radius: 5px;
+  height: 10px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background-color: var(--accent-color); 
+  border-radius: 5px;
+  width: 0; 
+  transition: width 1s ease-in-out;
+}
+
+/* --- Experience Section (Timeline) --- */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background-color: var(--border-color);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+}
+.timeline-item { 
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+.timeline-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: var(--secondary-bg-color);
+  border: 3px solid var(--accent-color);
+  top: 25px;
+  border-radius: 50%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+}
+.timeline-item:nth-child(odd) { left: 0; }
+.timeline-item:nth-child(odd) .timeline-icon { right: -25px; }
+.timeline-item:nth-child(even) { left: 50%; }
+.timeline-item:nth-child(even) .timeline-icon { left: -25px; }
+
+.timeline-content {
+  padding: 20px 30px;
+  background-color: var(--card-bg-color);
+  position: relative;
+  border-radius: 6px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+.timeline-content h3 {
+  margin-bottom: 5px;
+  color: var(--accent-color-secondary);
+}
+.experience-details {
+  font-style: italic;
+  color: var(--text-color-muted);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+.timeline-content p:not(.experience-details) {
+  font-size: 0.95rem;
+  color: var(--text-color-muted);
+}
+
+/* --- Projects Section --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.project-card { 
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.project-image { 
+  width: 100%;
+  height: 200px; 
+  overflow: hidden;
+  background-color: var(--secondary-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0; 
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+.project-icon { 
+  font-size: 4rem;
+  color: var(--accent-color);
+  opacity: 0.5;
+}
+.project-content {
+  padding: 20px;
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+}
+.project-content h3 {
+  margin-bottom: 10px;
+  color: var(--accent-color-secondary);
+}
+.project-content p { 
+  font-size: 0.95rem;
+  color: var(--text-color-muted);
+  margin-bottom: 15px;
+}
+.project-content p.project-tags { 
+   margin-bottom: 10px; 
+   flex-grow: 0; 
+}
+.project-links {
+  margin-top: auto; 
+  display: flex;
+  gap: 10px;
+  align-items: center; 
+}
+
+/* --- Blog Page Specifics --- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.blog-post-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.blog-post-content {
+  padding: 20px;
+}
+.blog-post-title {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: var(--accent-color-secondary);
+}
+.blog-post-meta {
+  font-size: 0.8rem;
+  color: var(--text-color-muted);
+  margin-bottom: 10px;
+  font-family: var(--font-secondary);
+}
+.blog-post-category {
+  background-color: rgba(52, 152, 219, 0.15);
+  color: var(--accent-color-secondary);
+  padding: 3px 6px;
+  border-radius: 3px;
+  margin-left: 8px;
+}
+.blog-post-excerpt {
+  font-size: 0.9rem;
+  color: var(--text-color-muted);
+  margin-bottom: 15px;
+}
+
+
+/* --- Contact Section --- */
+#contact .container { max-width: 800px; }
+
+.contact-content {
+  text-align: center;
+}
+
+.contact-content > p { /* The introductory paragraph */
+  font-size: 1.1rem;
+  color: var(--text-color-muted);
+  margin-bottom: 30px; /* Space between intro text and icons */
+}
+
+/* Styles for the ICON-ONLY contact links container */
+.contact-methods-icons { /* << RENAMED from your old .contact-methods for clarity */
+  display: flex;
+  flex-direction: row;         /* Arrange icons horizontally */
+  justify-content: center;     /* Center the group of icons */
+  align-items: center;
+  gap: 35px;                   /* Increased space between icons */
+  margin-top: 20px;            /* Space above the icons */
+  margin-bottom: 35px;         /* Space below the icons, before the "Send me an Email" button */
+}
+
+/* Styles for EACH ICON-ONLY link */
+.contact-icon-link { /* << RENAMED from your old .contact-link */
+  color: var(--text-color-muted); /* Default color of the icon */
+  font-size: 2.5rem;             /* MAKE ICONS LARGER - Adjust this value as desired */
+  padding: 10px;                 /* Add some padding around the icon to increase clickable area */
+  transition: color 0.3s ease, transform 0.3s ease;
+  line-height: 1;                /* Helps with consistent vertical alignment of icons */
+  display: inline-block;         /* Ensure it behaves like a block for padding/transform */
+}
+
+.contact-icon-link:hover,
+.contact-icon-link:focus {
+  color: var(--accent-color);    /* Change color on hover/focus to your accent color */
+  transform: scale(1.15) translateY(-4px); /* Grow and lift effect */
+  outline: none;
+}
+
+/* The <i> tag itself inside .contact-icon-link doesn't need separate styling for color/size now,
+   as it will inherit from .contact-icon-link. You can remove the old .contact-link i {} rule.
+*/
+
+.cta-button {
+  margin-top: 20px; /* This is for the "Send me an Email" button */
+}
+
+/* 
+   Your OLD CSS for .contact-methods and .contact-link (for icon+text)
+   can be commented out or removed if you are ONLY using the icon-only style
+   for this section in index.html.
+*/
+/*
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.contact-link {
+  font-size: 1.1rem;
+  color: var(--text-color-muted);
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-flex; 
+  align-items: center;
+  gap: 10px;
+}
+.contact-link:hover {
+  color: var(--accent-color);
+  transform: translateX(5px);
+}
+.contact-link i {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+}
+*/
+
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--secondary-bg-color);
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+.footer p {
+  margin: 8px 0;
+  color: var(--text-color-muted);
+}
+.footer .font-hacker {
+  color: var(--accent-color-secondary); 
+}
+.social-icons {
+  margin-bottom: 15px;
+}
+.social-icons a {
+  color: var(--text-color-muted);
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icons a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column-reverse; 
+    text-align: center;
   }
-  .skill-item {
-    margin-bottom: 20px;
+  .hero-text { text-align: center; } 
+  .hero-buttons { justify-content: center; }
+
+  .about-content { 
+      flex-direction: column; 
+      align-items: center; 
   }
-  .skill-item:last-child {
-    margin-bottom: 0;
-  }
-  .skill-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    font-family: var(--font-secondary);
-  }
-  .skill-name {
-    font-size: 0.95rem;
-    color: var(--text-color);
-    font-weight: 400;
-  }
-  .skill-percentage {
-    font-size: 0.9rem;
-    color: var(--accent-color);
-    font-weight: 700;
-  }
-  .progress-bar-container {
+  .about-text { text-align: center; }
+  .about-image { margin-top: 30px; }
+}
+
+@media (max-width: 768px) {
+  /* Mobile nav styles already handled above with #primary-navigation.nav-menu */
+
+  .timeline::after { left: 31px; }
+  .timeline-item {
     width: 100%;
-    background-color: var(--border-color);
-    border-radius: 5px;
-    height: 10px;
-    overflow: hidden;
-  }
-  .progress-bar {
-    height: 100%;
-    background-color: var(--accent-color); /* THM Green */
-    /* background-color: #f39c12; */ /* Orange color, if preferred */
-    border-radius: 5px;
-    width: 0; 
-    transition: width 1s ease-in-out;
-  }
-  /* END NEW Skills Section Styling */
-
-  /* REMOVED/COMMENTED OUT: Old Skill List Styling (as it's replaced by progress bars)
-  .skill-card ul:not(.skills-list-progress) {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .skill-card ul:not(.skills-list-progress) li {
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border-color);
-    color: var(--text-color-muted);
-    font-size: 0.95rem;
-  }
-  .skill-card ul:not(.skills-list-progress) li:last-child { border-bottom: none; }
-  .skill-level {
-    font-size: 0.8rem;
-    color: var(--accent-color);
-    font-family: var(--font-secondary);
-    margin-left: 5px;
-  }
-  */
-  
-  /* --- Experience Section (Timeline) --- */
-  .timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .timeline::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background-color: var(--border-color);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1.5px;
-  }
-  .timeline-item { /* This is <article class="timeline-item"> */
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 50%;
-  }
-  .timeline-icon {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: var(--secondary-bg-color);
-    border: 3px solid var(--accent-color);
-    top: 25px;
-    border-radius: 50%;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    color: var(--accent-color);
+    padding-left: 70px;
+    padding-right: 25px;
   }
   .timeline-item:nth-child(odd) { left: 0; }
-  .timeline-item:nth-child(odd) .timeline-icon { right: -25px; }
-  .timeline-item:nth-child(even) { left: 50%; }
-  .timeline-item:nth-child(even) .timeline-icon { left: -25px; }
+  .timeline-item:nth-child(even) { left: 0; } 
+  .timeline-icon {
+    left: 10px; 
+    right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  .hero-text .subtitle { font-size: 1rem; }
+  .hero-buttons { flex-direction: column; gap: 10px; align-items: center;}
+  .btn { width: 100%; max-width: 250px; }
   
-  .timeline-content {
-    padding: 20px 30px;
-    background-color: var(--card-bg-color);
-    position: relative;
-    border-radius: 6px;
-    box-shadow: var(--card-shadow);
-    border: 1px solid var(--border-color);
+  .skills-grid, .projects-grid, .blog-grid {
+    grid-template-columns: 1fr; 
   }
-  .timeline-content h3 {
-    margin-bottom: 5px;
-    color: var(--accent-color-secondary);
-  }
-  .experience-details {
-    font-style: italic;
-    color: var(--text-color-muted);
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-  }
-  .timeline-content p:not(.experience-details) {
-    font-size: 0.95rem;
-    color: var(--text-color-muted);
-  }
-  
-  /* --- Projects Section --- */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .project-card { /* This is <article class="project-card"> */
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  .project-image { /* This is <figure class="project-image"> */
-    width: 100%;
-    height: 200px; 
-    overflow: hidden;
-    background-color: var(--secondary-bg-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0; /* Reset figure margin */
-  }
-  .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-  .project-card:hover .project-image img {
-    transform: scale(1.05);
-  }
-  .project-icon { 
-    font-size: 4rem;
-    color: var(--accent-color);
-    opacity: 0.5;
-  }
-  .project-content {
-    padding: 20px;
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-  }
-  .project-content h3 {
-    margin-bottom: 10px;
-    color: var(--accent-color-secondary);
-  }
-  .project-content p { /* General p inside project-content */
-    font-size: 0.95rem;
-    color: var(--text-color-muted);
-    margin-bottom: 15px;
-    /* flex-grow: 1; This was here, might not be needed if .project-links handles bottom alignment */
-  }
-  .project-content p.project-tags { /* Specific for project tags p */
-     margin-bottom: 10px; /* Adjust as needed */
-     flex-grow: 0; /* Tags should not grow */
-  }
-  .project-links {
-    margin-top: auto; 
-    display: flex;
-    gap: 10px;
-    align-items: center; 
-  }
-  
-  /* --- Blog Page Specifics --- */
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  /* .blog-post-card base styles are in thm-theme.css */
-  .blog-post-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  .blog-post-content {
-    padding: 20px;
-  }
-  .blog-post-title {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: var(--accent-color-secondary);
-  }
-  .blog-post-meta {
-    font-size: 0.8rem;
-    color: var(--text-color-muted);
-    margin-bottom: 10px;
-    font-family: var(--font-secondary);
-  }
-  .blog-post-category {
-    background-color: rgba(52, 152, 219, 0.15);
-    color: var(--accent-color-secondary);
-    padding: 3px 6px;
-    border-radius: 3px;
-    margin-left: 8px;
-  }
-  .blog-post-excerpt {
-    font-size: 0.9rem;
-    color: var(--text-color-muted);
-    margin-bottom: 15px;
-  }
-  
-  
-  /* --- Contact Section --- */
-  #contact .container { max-width: 800px; }
-  .contact-content {
-    text-align: center;
-  }
-  .contact-content > p { /* The introductory paragraph */
-    font-size: 1.1rem;
-    color: var(--text-color-muted);
-    margin-bottom: 30px;
-  }
-  .contact-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  .contact-link {
-    font-size: 1.1rem;
-    color: var(--text-color-muted);
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: inline-flex; 
-    align-items: center;
-    gap: 10px;
-  }
-  .contact-link:hover {
-    color: var(--accent-color);
-    transform: translateX(5px);
-  }
-  .contact-link i {
-    color: var(--accent-color);
-    font-size: 1.3rem;
-  }
-  .cta-button { margin-top: 20px; }
-  
-  
-  /* --- Footer --- */
-  .footer {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: var(--secondary-bg-color);
-    border-top: 1px solid var(--border-color);
-    font-size: 0.9rem;
-  }
-  .footer p {
-    margin: 8px 0;
-    color: var(--text-color-muted);
-  }
-  .footer .font-hacker {
-    color: var(--accent-color-secondary); 
-  }
-  .social-icons {
-    margin-bottom: 15px;
-  }
-  .social-icons a {
-    color: var(--text-color-muted);
-    font-size: 1.5rem;
-    margin: 0 10px;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  .social-icons a:hover {
-    color: var(--accent-color);
-    transform: scale(1.1);
-  }
-  
-  
-  /* --- Responsive Adjustments --- */
-  @media (max-width: 992px) {
-    .hero-content {
-      flex-direction: column-reverse; 
-      text-align: center;
-    }
-    .hero-text { text-align: center; } /* Ensure hero text is centered too */
-    .hero-buttons { justify-content: center; }
-  
-    .about-content { 
-        flex-direction: column; 
-        align-items: center; /* Center items when stacked */
-    }
-    .about-text { text-align: center; }
-    .about-image { margin-top: 30px; }
-  }
-  
-  @media (max-width: 768px) {
-    /* Mobile nav styles are already above, ensure they are correct */
-  
-    /* Timeline adjustments for smaller screens */
-    .timeline::after { left: 31px; }
-    .timeline-item {
-      width: 100%;
-      padding-left: 70px;
-      padding-right: 25px;
-    }
-    .timeline-item:nth-child(odd) { left: 0; }
-    .timeline-item:nth-child(even) { left: 0; } 
-    .timeline-icon {
-      left: 10px; 
-      right: auto;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.8rem; }
-    .hero-text .subtitle { font-size: 1rem; }
-    .hero-buttons { flex-direction: column; gap: 10px; align-items: center;}
-    .btn { width: 100%; max-width: 250px; }
-    
-    .skills-grid, .projects-grid, .blog-grid {
-      grid-template-columns: 1fr; /* Single column for small screens */
-    }
-  }
+}
