@@ -5,28 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pradip Sapkota - Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .landing {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4rem 2rem;
+      background-color: var(--bg-dark);
+    }
+
+    .intro-text {
+      flex: 1 1 50%;
+      color: var(--text-light);
+      padding: 2rem;
+    }
+
+    .intro-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+
+    .intro-text p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .intro-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      flex: 1 1 40%;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .landing {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .intro-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Pradip Sapkota</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+  <!-- Navigation -->
+  <header class="navigation">
+    <a class="nav-brand" href="index.html">Pradip Sapkota</a>
+    <nav class="nav-pills">
+      <a class="link link-active" href="index.html">Home</a>
+      <a class="link" href="about.html">About</a>
+      <a class="link" href="projects.html">Projects</a>
+      <a class="link" href="blog.html">Blog</a>
+      <a class="link" href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>Welcome to my Portfolio</h2>
-      <p>I’m a Cybersecurity major and Finance minor, building secure systems and creating value through code and content.</p>
-    </section>
-  </main>
+  <!-- Hero Section -->
+  <section class="landing">
+    <div class="intro-text">
+      <h1>Hi, I’m Pradip Sapkota</h1>
+      <p>
+        A Cybersecurity major and Finance minor passionate about building secure systems, automating workflows, and integrating finance with technology.
+      </p>
+      <div class="intro-buttons">
+        <a class="link link-primary" href="projects.html">View Projects</a>
+        <a class="link link-secondary" href="about.html">About Me</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/Profile.jpg" alt="Pradip Sapkota">
+    </div>
+  </section>
 
-  <footer>
-    <p>© 2025 Pradip Sapkota</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Pradip Sapkota </p>
   </footer>
 </body>
 </html>
