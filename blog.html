@@ -4,44 +4,111 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog - Pradip Sapkota</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/thm-theme.css" />
+  <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Navigation (Same as index.html) -->
   <header class="navigation">
-    <a class="nav-brand" href="index.html">Pradip Sapkota</a>
-    <nav class="nav-pills">
-      <a class="link" href="index.html">Home</a>
-      <a class="link" href="about.html">About</a>
-      <a class="link" href="projects.html">Projects</a>
-      <a class="link link-active" href="blog.html">Blog</a>
-      <a class="link" href="contact.html">Contact</a>
+    <a class="nav-brand animate-on-load" href="index.html#home">
+      <span class="font-hacker"><PradipSapkota /></span>
+    </a>
+    <button class="nav-toggle" aria-label="toggle navigation">
+      <span class="hamburger"></span>
+    </button>
+    <nav class="nav-menu">
+      <a class="nav-link" href="index.html#home">Home</a>
+      <a class="nav-link" href="index.html#about">About</a>
+      <a class="nav-link" href="index.html#skills">Skills</a>
+      <a class="nav-link" href="index.html#experience">Experience</a>
+      <a class="nav-link" href="index.html#projects">Projects</a>
+      <a class="nav-link active" href="blog.html">Blog</a>
+      <a class="nav-link" href="index.html#contact">Contact</a>
     </nav>
   </header>
 
-  <main class="container section">
-    <h1>Blog Posts</h1>
+  <!-- Blog Section -->
+  <section id="blog-main" class="section-padding">
+    <div class="container">
+      <h2 class="section-heading animate-on-scroll">
+        <span class="font-hacker">// My Thoughts & Insights</span>
+      </h2>
+      <p class="animate-on-scroll" style="text-align: center; margin-bottom: 40px;">
+        Welcome to my blog! Here I'll share articles on cybersecurity, finance, tech trends, and project deep-dives.
+      </p>
 
-    <section class="section ow">
-      <h2><a href="blog/post1.html"> What is Vulnerability Scanning?</a></h2>
-      <p>A beginner-friendly breakdown of how tools like Nessus and VulnX identify risks and help secure digital systems.</p>
-      <p><em>Posted May 9, 2025</em></p>
-    </section>
+      <div class="blog-grid">
+        <!-- Example Blog Post Card -->
+        <article class="blog-post-card animate-on-scroll">
+          <img src="images/blog-post-placeholder.png" alt="Blog post title" class="blog-post-image">
+          <div class="blog-post-content">
+            <h3 class="blog-post-title">Understanding Phishing Attacks in 2024</h3>
+            <p class="blog-post-meta">Published on: July 20, 2024 <span class="blog-post-category">Cybersecurity</span></p>
+            <p class="blog-post-excerpt">A deep dive into the latest phishing techniques and how to protect yourself and your organization...</p>
+            <a href="#" class="btn btn-secondary btn-small">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
 
-    <section class="section">
-      <h2><a href="blog/post2.html"> Cybersecurity Meets Finance: Protecting Digital Assets</a></h2>
-      <p>An introduction to the growing world of FinSec — where financial data protection and infosec principles merge.</p>
-      <p><em>Posted May 7, 2025</em></p>
-    </section>
+        <article class="blog-post-card animate-on-scroll delay-0-2s">
+          <img src="images/blog-post-placeholder.png" alt="Blog post title" class="blog-post-image">
+          <div class="blog-post-content">
+            <h3 class="blog-post-title">The Role of AI in Algorithmic Trading</h3>
+            <p class="blog-post-meta">Published on: July 15, 2024 <span class="blog-post-category">Finance</span></p>
+            <p class="blog-post-excerpt">Exploring how Artificial Intelligence is reshaping financial markets and trading strategies...</p>
+            <a href="#" class="btn btn-secondary btn-small">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
 
-    <section class="section ow">
-      <h2><a href="blog/post3.html"> Why MFA Isn’t Optional Anymore</a></h2>
-      <p>Multi-Factor Authentication is now critical for everything — from personal email to enterprise security.</p>
-      <p><em>Posted May 5, 2025</em></p>
-    </section>
-  </main>
+        <article class="blog-post-card animate-on-scroll delay-0-4s">
+          <div class="blog-post-content" style="text-align:center; padding: 40px;">
+            <i class="fas fa-terminal fa-3x" style="margin-bottom: 20px; color: var(--accent-color);"></i>
+            <h3>More Content Coming Soon!</h3>
+            <p>Stay tuned for more articles and insights.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
+  <!-- Footer (Same as index.html) -->
   <footer class="footer">
-    <p>© 2025 Pradip Sapkota | Cybersecurity x Finance Insights</p>
+     <div class="social-icons">
+        <a href="https://linkedin.com/in/pradip-sapkota" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    <p class="font-hacker">© <span id="currentYearBlog"></span> Pradip Sapkota. All rights reserved.</p>
+    <p>Built with <i class="fas fa-heart" style="color: var(--accent-color);"></i> and a bit of <span class="font-hacker">./code</span></p>
   </footer>
+
+  <script>
+    // Basic JS for blog page if needed (e.g., year)
+    if (document.getElementById('currentYearBlog')) {
+        document.getElementById('currentYearBlog').textContent = new Date().getFullYear();
+    }
+    // Re-use nav toggle from main script if nav is complex, or simplify for blog if separate
+    const navToggleBlog = document.querySelector('.nav-toggle');
+    const navMenuBlog = document.querySelector('.nav-menu');
+    if(navToggleBlog && navMenuBlog) {
+        navToggleBlog.addEventListener('click', () => {
+            navMenuBlog.classList.toggle('active');
+            navToggleBlog.classList.toggle('active');
+        });
+    }
+
+    // Basic scroll animations for blog page
+    const blogElementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+    const observerBlog = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    blogElementsToAnimate.forEach(el => observerBlog.observe(el));
+  </script>
 </body>
 </html>

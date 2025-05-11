@@ -1,99 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pradip Sapkota - Portfolio</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .landing {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4rem 2rem;
-      background-color: var(--bg-dark);
-    }
+  <head>
+    <!-- ─────────────────── Meta & Title ─────────────────── -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Pradip Sapkota – Cybersecurity student & Finance minor building secure, data‑driven solutions."/>
+    <title>Pradip Sapkota – Cybersecurity &amp; Finance</title>
 
-    .intro-text {
-      flex: 1 1 50%;
-      color: var(--text-light);
-      padding: 2rem;
-    }
+    <!-- ─────────────────── Google Fonts ─────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 
-    .intro-text h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: var(--accent-color);
-    }
+    <!-- ─────────────────── Icon Pack (Font Awesome 6) ─────────────────── -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXREp2uU2dAbOe+tfHcV0Kj1p6Sg9b9N0vKtu8f5y3R0Y5Yk9jwF9B+PzQjv87TxXYnB9mAA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-    .intro-text p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
+    <!-- ─────────────────── Theme & Layout Stylesheets ─────────────────── -->
+    <link rel="stylesheet" href="css/thm-theme.css"/>
+    <link rel="stylesheet" href="css/animations.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
 
-    .intro-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    <!-- ─────────────────── Inline Essentials ─────────────────── -->
+    <style>
+      /* Smooth scrolling for anchor links */
+      html{scroll-behavior:smooth}
+    </style>
+  </head>
+  <body>
+    <!-- ============================== Navigation ============================== -->
+    <header class="navigation">
+      <a class="nav-brand animate-on-load" href="#home">
+        <span class="font-hacker">&lt;PradipSapkota /&gt;</span>
+      </a>
 
-    .hero-image {
-      flex: 1 1 40%;
-      text-align: center;
-    }
+      <!-- hamburger toggle for small screens -->
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
 
-    .hero-image img {
-      width: 100%;
-      max-width: 350px;
-      border-radius: 1rem;
-    }
+      <nav id="primary-navigation" class="nav-menu" role="navigation">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="blog.html">Blog</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    @media (max-width: 768px) {
-      .landing {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
-
-      .intro-buttons {
-        justify-content: center;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <header class="navigation">
-    <a class="nav-brand" href="index.html">Pradip Sapkota</a>
-    <nav class="nav-pills">
-      <a class="link link-active" href="index.html">Home</a>
-      <a class="link" href="about.html">About</a>
-      <a class="link" href="projects.html">Projects</a>
-      <a class="link" href="blog.html">Blog</a>
-      <a class="link" href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="landing">
-    <div class="intro-text">
-      <h1>Hi, I’m Pradip Sapkota</h1>
-      <p>
-        A Cybersecurity major and Finance minor passionate about building secure systems, automating workflows, and integrating finance with technology.
-      </p>
-      <div class="intro-buttons">
-        <a class="link link-primary" href="projects.html">View Projects</a>
-        <a class="link link-secondary" href="about.html">About Me</a>
+    <!-- ============================== Hero Section ============================== -->
+    <section id="home" class="hero-section" aria-label="Introduction">
+      <div class="hero-content">
+        <header class="hero-text">
+          <h1 class="animate-typing">Hi, I'm <span class="highlight">Pradip Sapkota</span></h1>
+          <p class="subtitle animate-fade-in-up delay-1s">
+            Cybersecurity Major &amp; Finance Minor.<br />
+            Crafting secure digital solutions &amp; bridging tech with business insights.
+          </p>
+          <div class="hero-buttons animate-fade-in-up delay-2s">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="assets/Pradip_Sapkota_Resume.pdf" target="_blank" rel="noopener">My&nbsp;Resume <i class="fas fa-download" aria-hidden="true"></i></a>
+          </div>
+        </header>
+        <figure class="hero-image-container animate-fade-in-right delay-0-5s">
+          <img src="images/Profile.JPG" alt="Portrait of Pradip Sapkota" class="hero-image" loading="lazy"/>
+        </figure>
       </div>
-    </div>
-    <div class="hero-image">
-      <img src="images/Profile.jpg" alt="Pradip Sapkota">
-    </div>
-  </section>
+      <a href="#about" class="scroll-down-indicator animate-bounce" aria-label="Scroll down">
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </a>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 Pradip Sapkota </p>
-  </footer>
-</body>
+    <!-- ============================== About Section ============================== -->
+    <section id="about" class="section-padding" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-heading animate-on-scroll">
+        <span class="font-hacker">// About Me</span>
+      </h2>
+      <div class="about-content animate-on-scroll">
+        <div class="about-text">
+          <p>I’m a passionate and driven student at the <span class="highlight-alt">University of North Texas</span>, majoring in Cybersecurity with a minor in Finance. My academic journey is fueled by a fascination with the intersection of technology and financial systems, aiming to build robust security frameworks and innovative financial tech solutions.</p>
+          <p>I thrive on tackling complex challenges, whether it's dissecting malware, designing secure networks, or analyzing financial data for strategic insights. My goal is to leverage my dual expertise to contribute meaningfully to organizations that value security, innovation, and strategic growth.</p>
+          <p>Beyond academics and projects, I enjoy participating in CTFs, exploring new programming languages, and following financial markets.</p>
+        </div>
+        <figure class="about-image animate-on-scroll delay-0-5s">
+          <img src="images/about-me-graphic.png" alt="Cybersecurity and finance illustration" width="300" height="300" style="border-radius:8px;opacity:.8" loading="lazy"/>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================== Skills Section ============================== -->
+    <section id="skills" class="section-padding thm-bg-darker" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="section-heading animate-on-scroll">
+        <span class="font-hacker">// My Arsenal (Skills)</span>
+      </h2>
+      <div class="skills-grid" role="list">
+        <!-- Languages & Scripting -->
+        <div class="skill-card animate-on-scroll" role="listitem">
+          <h3><i class="fas fa-terminal" aria-hidden="true"></i> Languages &amp; Scripting</h3>
+          <ul>
+            <li>Python <span class="skill-level">(Proficient)</span></li>
+            <li>C <span class="skill-level">(Intermediate)</span></li>
+            <li>Java <span class="skill-level">(Intermediate)</span></li>
+            <li>Bash <span class="skill-level">(Proficient)</span></li>
+            <li>SQL <span class="skill-level">(Intermediate)</span></li>
+            <li>HTML&nbsp;/&nbsp;CSS&nbsp;/&nbsp;JavaScript <span class="skill-level">(Basic)</span></li>
+          </ul>
+        </div>
+        <!-- Cybersecurity -->
+        <div class="skill-card animate-on-scroll delay-0-2s" role="listitem">
+          <h3><i class="fas fa-shield-virus" aria-hidden="true"></i> Cybersecurity</h3>
+          <ul>
+            <li>Nessus / OpenVAS</li>
+            <li>Burp Suite</li>
+            <li>Nmap</li>
+            <li>Wireshark</li>
+            <li>Metasploit Framework</li>
+            <li>Digital Forensics (Autopsy)</li>
+            <li>SIEM (Splunk – Basic)</li>
+          </ul>
+        </div>
+        <!-- Cloud & DevOps -->
+        <div class="skill-card animate-on-scroll delay-0-4s" role="listitem">
+          <h3><i class="fas fa-cloud" aria-hidden="true"></i> Cloud &amp; DevOps</h3>
+          <ul>
+            <li>AWS (EC2, S3, IAM – Practitioner)</li>
+            <li>Git &amp; GitHub</li>
+            <li>Linux (Ubuntu, Kali)</li>
+            <li>Docker (Basic)</li>
+            <li>Terraform (Learning)</li>
+          </ul>
+        </div>
+        <!-- Finance & Analytics -->
+        <div class="skill-card animate-on-scroll delay-0-6s" role="listitem">
+          <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Finance &amp; Analytics</h3>
+          <ul>
+            <li>Financial Modeling (Excel)</li>
+            <li>Power BI / Tableau (Basic)</li>
+            <li>Risk Assessment</li>
+            <li>Investment Analysis (Concepts)</li>
+            <li>Bloomberg Terminal (Exposure)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Experience Section ============================== -->
+    <section id="experience" class="section-padding" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" class="section-heading animate-on-scroll">
+        <span class="font-hacker">// Career Trajectory</span>
+      </h2>
+      <div class="timeline" role="list">
+        <!-- Item 1 -->
+        <article class="timeline-item animate-on-scroll" role="listitem">
+          <div class="timeline-icon" aria-hidden="true"><i class="fas fa-flask"></i></div>
+          <div class="timeline-content">
+            <h3>Research Assistant</h3>
+            <p class="experience-details"><em>UNT Health Science Center | May&nbsp;2023 – Present</em></p>
+            <p>Contribute to neuroscience research by managing and analyzing large datasets, developing Python scripts for data processing, and maintaining lab computing infrastructure. Enhanced data processing efficiency by 20%.</p>
+          </div>
+        </article>
+        <!-- Item 2 -->
+        <article class="timeline-item animate-on-scroll" role="listitem">
+          <div class="timeline-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></div>
+          <div class="timeline-content">
+            <h3>Assistant Manager</h3>
+            <p class="experience-details"><em>Global Victors | Jan&nbsp;2020 – Apr&nbsp;2023</em></p>
+            <p>Led a team in direct sales and network marketing. Developed strategies for customer acquisition and retention, coordinated team activities, and managed inventory. Awarded "Top Performer" twice.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================== Projects Section ============================== -->
+    <section id="projects" class="section-padding thm-bg-darker" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-heading animate-on-scroll">
+        <span class="font-hacker">// Featured Projects</span>
+      </h2>
+      <div class="projects-grid" role="list">
+        <!-- Project 1 -->
+        <article class="project-card animate-on-scroll" role="listitem">
+          <figure class="project-image">
+            <img src="images/vulnx-thumb.png" alt="Screenshot of VulnX vulnerability scanner" loading="lazy"/>
+          </figure>
+          <div class="project-content">
+            <h3>VulnX – Vulnerability Scanner</h3>
+            <p class="project-tags"><span class="tag">Python</span> <span class="tag">Nmap</span> <span class="tag">CVE</span> <span class="tag">Reporting</span></p>
+            <p>A custom Python-based scanner that fetches CVEs and analyzes Nmap XML data, generating styled PDF/HTML vulnerability reports.</p>
+            <div class="project-links">
+              <a class="btn btn-primary btn-small" href="https://github.com/pradip676/vulnx" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 2 -->
+        <article class="project-card animate-on-scroll delay-0-2s" role="listitem">
+          <figure class="project-image">
+            <img src="images/hackdome-thumb.png" alt="Screenshot of HackDome CTF platform" loading="lazy"/>
+          </figure>
+          <div class="project-content">
+            <h3>HackDome – CTF Platform</h3>
+            <p class="project-tags"><span class="tag">WordPress</span> <span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">Stripe</span></p>
+            <p>Developed a Capture The Flag platform using WordPress, hosted on AWS with MFA and Stripe integration. Features simulated phishing and SQLi labs.</p>
+            <div class="project-links">
+              <a class="btn btn-primary btn-small" href="https://github.com/pradip676/hackdome" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 3 -->
+        <article class="project-card animate-on-scroll delay-0-4s" role="listitem">
+          <figure class="project-image">
+            <img src="images/cloudvar-thumb.png" alt="Screenshot of CloudVaR risk dashboard" loading="lazy"/>
+          </figure>
+          <div class="project-content">
+            <h3>CloudVaR – FinSec Risk Dashboard</h3>
+            <p class="project-tags"><span class="tag">Python</span> <span class="tag">Cloud Security</span> <span class="tag">Finance</span> <span class="tag">Data Viz</span></p>
+            <p>An in-progress platform aiming to integrate financial data (Value at Risk) with cyber threat intelligence and cloud security posture visualization.</p>
+            <div class="project-links">
+              <span class="chip-status">In Progress <i class="fas fa-cogs" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================== Contact Section ============================== -->
+    <section id="contact" class="section-padding" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="section-heading animate-on-scroll">
+        <span class="font-hacker">// Get In Touch</span>
+      </h2>
+      <div class="contact-content animate-on-scroll">
+        <p>I’m always excited to connect, discuss new projects, or explore opportunities. <br/>Feel free to reach out through any of these channels!</p>
+        <div class="contact-methods" role="list">
+          <a href="mailto:pradip.sapkota@example.com" class="contact-link animate-on-scroll delay-0-2s" role="listitem">
+            <i class="fas fa-envelope" aria-hidden="true"></i> <span>pradip.sapkota@example.com</span>
+          </a>
+          <a href="https://linkedin.com/in/pradip-sapkota" target="_blank" class="contact-link animate-on-scroll delay-0-4s" rel="noopener" role="listitem">
+            <i class="fab fa-linkedin" aria-hidden="true"></i> <span>linkedin.com/in/pradip-sapkota</span>
+          </a>
+          <a href="https://github.com/pradip676" target="_blank" class="contact-link animate-on-scroll delay-0-6s" rel="noopener" role="listitem">
+            <i class="fab fa-github" aria-hidden="true"></i> <span>github.com/pradip676</span>
+          </a>
+        </div>
+        <a class="btn btn-primary cta-button animate-on-scroll delay-0-8s" href="mailto:pradip.sapkota@example.com">
+          <i class="fas fa-paper-plane" aria-hidden="true"></i> Send me an Email
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== Footer ============================== -->
+    <footer class="footer" role="contentinfo">
+      <div class="social-icons" aria-label="Social links">
+        <a href="https://linkedin.com/in/pradip-sapkota" target="_blank" aria-label="LinkedIn" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
+      </div>
+      <p class="font-hacker">© <span id="currentYear"></span> Pradip Sapkota. All rights reserved.</p>
+      <p>Built with <i class="fas fa-heart" aria-hidden="true"></i> and a bit of <span class="font-hacker">./code</span></p>
+    </footer>
+
+    <!-- ============================== Scripts ============================== -->
+    <script>
+      // update copyright year
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // responsive nav toggle
+      const navToggle = document.querySelector('.nav-toggle');
+      const navMenu   = document.getElementById('primary-navigation');
+      navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+      });
+    </script>
+    <script src="js/script.js" defer></script>
+  </body>
 </html>

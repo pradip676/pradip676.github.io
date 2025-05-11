@@ -1,0 +1,190 @@
+/* css/thm-theme.css */
+:root {
+    --primary-bg-color: #1a1d24; /* Darker blue-ish grey */
+    --secondary-bg-color: #111318; /* Even darker for depth */
+    --text-color: #e0e0e0;
+    --text-color-muted: #a0a0a0;
+    --accent-color: #2ecc71; /* THM Green */
+    --accent-color-secondary: #3498db; /* A contrasting blue */
+    --highlight-color: var(--accent-color);
+    --border-color: #333842; /* Subtle border */
+  
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto Mono', monospace; /* For "hacker" text */
+  
+    --card-bg-color: #23272f;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --card-hover-shadow: 0 6px 20px rgba(var(--accent-color), 0.2);
+    --card-border-hover: 1px solid var(--accent-color);
+  
+    --btn-primary-bg: var(--accent-color);
+    --btn-primary-text: #111;
+    --btn-primary-hover-bg: #27ae60; /* Darker green */
+  
+    --btn-secondary-bg: transparent;
+    --btn-secondary-text: var(--accent-color);
+    --btn-secondary-border: 1px solid var(--accent-color);
+    --btn-secondary-hover-bg: rgba(46, 204, 113, 0.1); /* Light green transparent */
+  }
+  
+  body {
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  
+  .font-hacker {
+    font-family: var(--font-secondary);
+    color: var(--accent-color); /* Make hacker font green by default */
+    font-weight: 400;
+  }
+  
+  .highlight {
+    color: var(--accent-color);
+    font-weight: 700;
+  }
+  .highlight-alt {
+    color: var(--accent-color-secondary);
+    font-weight: 600;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #f5f5f5; /* Slightly brighter for headings */
+    font-family: var(--font-primary); /* Or use --font-secondary for a more techy feel */
+    margin-top: 0;
+    margin-bottom: 0.75em;
+    line-height: 1.3;
+  }
+  
+  h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+  h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+  
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: var(--accent-color-secondary);
+    text-decoration: none; /* Maybe underline on hover */
+  }
+  
+  .section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  .section-heading .font-hacker {
+    display: inline-block;
+    font-size: 0.9em; /* Relative to parent h2 */
+  }
+  .section-heading::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+  
+  
+  /* --- Buttons --- */
+  .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: var(--font-secondary); /* Hacker font for buttons */
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  
+  .btn-primary {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+  }
+  .btn-primary:hover {
+    background-color: var(--btn-primary-hover-bg);
+    color: var(--btn-primary-text);
+  }
+  
+  .btn-secondary {
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+    border: var(--btn-secondary-border);
+  }
+  .btn-secondary:hover {
+    background-color: var(--btn-secondary-hover-bg);
+    color: var(--btn-secondary-text);
+  }
+  
+  .btn-small {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+  
+  /* --- THM Specific Background for some sections --- */
+  .thm-bg-darker {
+    background-color: var(--secondary-bg-color);
+    /* Optional: subtle pattern like scanlines */
+    /* background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 1px 3px; */
+  }
+  
+  /* --- General Card Styling --- */
+  .skill-card, .project-card, .blog-post-card {
+    background-color: var(--card-bg-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid transparent; /* for hover transition */
+  }
+  .skill-card:hover, .project-card:hover, .blog-post-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--card-hover-shadow);
+    border: var(--card-border-hover);
+  }
+  
+  /* --- Tags for projects --- */
+  .project-tags .tag {
+    display: inline-block;
+    background-color: rgba(46, 204, 113, 0.15); /* Light green transparent */
+    color: var(--accent-color);
+    font-family: var(--font-secondary);
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  
+  /* --- Chip status for projects --- */
+  .chip-status {
+    display: inline-block;
+    background-color: var(--accent-color-secondary);
+    color: var(--text-color);
+    font-family: var(--font-secondary);
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 15px;
+  }
+  .chip-status i {
+    margin-left: 5px;
+  }

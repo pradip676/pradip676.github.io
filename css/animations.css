@@ -1,0 +1,102 @@
+/* css/animations.css */
+
+/* --- Base for scroll animations --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* --- Specific Animation Classes (used with .animate-on-scroll or standalone) --- */
+  
+  .animate-fade-in { opacity: 0; animation: fadeIn 1s forwards; }
+  .animate-fade-in-up { opacity: 0; animation: fadeInUp 0.8s forwards; }
+  .animate-fade-in-down { opacity: 0; animation: fadeInDown 0.8s forwards; }
+  .animate-fade-in-left { opacity: 0; animation: fadeInLeft 0.8s forwards; }
+  .animate-fade-in-right { opacity: 0; animation: fadeInRight 0.8s forwards; }
+  
+  .animate-slide-in-left { opacity: 0; animation: slideInLeft 0.8s forwards; }
+  .animate-slide-in-right { opacity: 0; animation: slideInRight 0.8s forwards; }
+  
+  .animate-zoom-in { opacity: 0; animation: zoomIn 0.6s forwards; }
+  
+  .animate-bounce { animation: bounce 2s infinite; }
+  
+  /* Delays for staggered animations */
+  .delay-0-2s { transition-delay: 0.2s !important; animation-delay: 0.2s !important; }
+  .delay-0-4s { transition-delay: 0.4s !important; animation-delay: 0.4s !important; }
+  .delay-0-5s { transition-delay: 0.5s !important; animation-delay: 0.5s !important; }
+  .delay-0-6s { transition-delay: 0.6s !important; animation-delay: 0.6s !important; }
+  .delay-0-8s { transition-delay: 0.8s !important; animation-delay: 0.8s !important; }
+  .delay-1s { transition-delay: 1s !important; animation-delay: 1s !important; }
+  .delay-1-5s { transition-delay: 1.5s !important; animation-delay: 1.5s !important; }
+  .delay-2s { transition-delay: 2s !important; animation-delay: 2s !important; }
+  
+  
+  /* Keyframes */
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  @keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+  }
+  
+  /* Typing Effect (Hero Text) - Base Style */
+  .animate-typing {
+    display: inline-block;
+    overflow: hidden; /* Ensures the text is not visible until typed */
+    /* border-right: .15em solid var(--accent-color); /* The cursor */
+    /* white-space: nowrap; /* Keeps the content on a single line */
+    /* animation: typing-cursor 0.75s step-end infinite; */
+  }
+  
+  /* Cursor for typing effect - JS will add this */
+  .typing-cursor::after {
+      content: '_';
+      animation: blink-caret .75s step-end infinite;
+      color: var(--accent-color);
+      font-weight: bold;
+  }
+  
+  @keyframes blink-caret {
+    from, to { opacity: 0 }
+    50% { opacity: 1 }
+  }
