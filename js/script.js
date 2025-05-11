@@ -1,46 +1,27 @@
 // js/script.js
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Navigation Toggle for Mobile ---
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
   
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active'); // For hamburger animation
-        // Optional: Prevent body scroll when mobile menu is open
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-      });
-  
-      // Close mobile menu when a link is clicked
-      navMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          if (navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-      });
-    }
-  
-    // --- Smooth Scroll & Active Link Highlighting (simplified) ---
-    const navLinks = document.querySelectorAll('.nav-link');
+    // --- Active Link Highlighting on Scroll ---
+    const navLinks = document.querySelectorAll('.nav-link'); // Assuming nav-link is still used
     const sections = document.querySelectorAll('section[id]');
   
     function updateActiveLink() {
       let currentSectionId = '';
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 100) { // Adjust offset as needed
+        // Adjust offset if header is fixed and has height
+        const headerHeight = document.querySelector('.navigation')?.offsetHeight || 70; 
+        if (window.pageYOffset >= sectionTop - headerHeight - 20) { // Added 20px buffer
           currentSectionId = section.getAttribute('id');
         }
       });
   
       navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSectionId}` || 
-            (link.getAttribute('href') === 'blog.html' && window.location.pathname.endsWith('blog.html'))) {
+        // Handle blog link separately if it's an external page
+        if (link.getAttribute('href') === 'blog.html' && window.location.pathname.includes('blog.html')) {
+          link.classList.add('active');
+        } else if (link.hash === `#${currentSectionId}`) { // Use .hash for anchor links
           link.classList.add('active');
         }
       });
@@ -48,82 +29,96 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink(); // Initial call
   
-    // --- Scroll-triggered Animations (Intersection Observer) ---
+    // --- Scroll-triggered Animations (General Elements) ---
     const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver((entries) => {
+    const generalObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          // Optional: unobserve after animation to save resources
-          // observer.unobserve(entry.target); 
+          // Optional: unobserve after animation
+          // generalObserver.unobserve(entry.target); 
         } else {
           // Optional: remove class to re-animate on scroll up
           // entry.target.classList.remove('is-visible');
         }
       });
     }, {
-      threshold: 0.1 // Trigger when 10% of the element is visible
+      threshold: 0.1 
     });
   
-    elementsToAnimate.forEach(el => observer.observe(el));
+    elementsToAnimate.forEach(el => generalObserver.observe(el));
   
     // --- Hero Text Typing Animation ---
     const typingElement = document.querySelector('.animate-typing');
     if (typingElement) {
-      const textToType = typingElement.innerHTML; // Get text from HTML (includes <span>)
-      typingElement.innerHTML = ''; // Clear original content
-      typingElement.classList.add('typing-cursor'); // Add cursor style
+      // Ensure this doesn't conflict if you manually clear it for the animation
+      const textToType = typingElement.textContent; // Use textContent if innerHTML causes issues
+      typingElement.innerHTML = ''; // Clear for typing effect
+      typingElement.classList.add('typing-cursor'); 
       let i = 0;
-      let isTag = false;
+      let isTag = false; // This logic might need adjustment if textToType is pure text now
       let currentTag = '';
   
       function typeWriter() {
         if (i < textToType.length) {
           let char = textToType.charAt(i);
           
-          if (char === '<') {
-            isTag = true;
-          }
-          
-          if (isTag) {
-            currentTag += char;
-          } else {
-            typingElement.innerHTML += char;
-          }
-          
-          if (char === '>') {
-            isTag = false;
-            typingElement.innerHTML += currentTag;
-            currentTag = '';
-          }
+          // Simpler logic if no HTML tags are within the typing element initially
+          typingElement.innerHTML += char;
           
           i++;
-          setTimeout(typeWriter, isTag ? 0 : 70); // Type tags faster
+          setTimeout(typeWriter, 70); // Adjust typing speed
         } else {
-          typingElement.classList.remove('typing-cursor'); // Remove cursor when done
+          typingElement.classList.remove('typing-cursor'); 
         }
       }
-      setTimeout(typeWriter, 500); // Initial delay before typing starts
+      setTimeout(typeWriter, 500); 
     }
     
     // --- Animate elements on page load (if not scroll-dependent) ---
     const loadAnimations = document.querySelectorAll('.animate-on-load');
     loadAnimations.forEach(el => {
-      // This assumes CSS animations are set up to play once visible or immediately
-      // For JS-controlled load animations, you'd add a class here.
-      // Example: el.classList.add('loaded-visible');
-      // For now, we rely on CSS animation properties.
+      // For elements that should animate immediately (e.g., nav brand)
+      // Ensure their animation is defined in CSS (e.g., animations.css with an animation that runs on load)
+      // Or, add a class that triggers an animation
+      // For simplicity, we assume CSS handles 'animate-on-load' directly if needed.
+      // If JS control is needed: el.classList.add('animation-start-class');
     });
   
+    // --- Dynamic Year in Footer (already in your inline script, but good to have here too if you centralize) ---
+    // const currentYearSpan = document.getElementById('currentYear');
+    // if (currentYearSpan) {
+    //   currentYearSpan.textContent = new Date().getFullYear();
+    // }
+    // Note: currentYearBlogSpan is for blog.html, not index.html generally
   
-    // --- Dynamic Year in Footer ---
-    const currentYearSpan = document.getElementById('currentYear');
-    if (currentYearSpan) {
-      currentYearSpan.textContent = new Date().getFullYear();
-    }
-    const currentYearBlogSpan = document.getElementById('currentYearBlog');
-     if (currentYearBlogSpan) {
-      currentYearBlogSpan.textContent = new Date().getFullYear();
-    }
+    // --- Animate Progress Bars on Scroll (NEW) ---
+    const skillItems = document.querySelectorAll('.skill-item');
   
-  });
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const progressBar = entry.target.querySelector('.progress-bar');
+          if (progressBar) {
+            const progress = progressBar.getAttribute('data-progress');
+            progressBar.style.width = progress + '%';
+          }
+          // Optional: Unobserve after animation
+          // observer.unobserve(entry.target);
+        } else {
+          // Optional: Reset width if you want animation to replay on scroll up
+          // const progressBar = entry.target.querySelector('.progress-bar');
+          // if (progressBar) {
+          //   progressBar.style.width = '0%';
+          // }
+        }
+      });
+    }, {
+      threshold: 0.2 // Trigger when 20% of the skill-item is visible
+    });
+  
+    skillItems.forEach(item => {
+      skillObserver.observe(item);
+    });
+  
+  }); // End of DOMContentLoaded
