@@ -20,19 +20,26 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 5%;
-  background-color: rgba(17, 19, 24, 0.85); /* Semi-transparent dark bg */
+  background-color: rgba(17, 19, 24, 0.85); /* Dark mode default */
   position: fixed;
   top: 0;
   left: 0;
-  width: 90%; /* Covers 100% due to padding */
+  width: 90%; 
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
   border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* For theme switch */
 }
+body.light-mode .navigation {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for light mode */
+  border-bottom: 1px solid var(--border-color); /* Uses light mode border color */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow for light mode */
+}
+
 .nav-brand {
-  font-weight: 700; /* This was already here, good */
-  color: var(--text-color);
+  font-weight: 700; /* This should make the text part bold if .font-hacker doesn't override */
+  color: var(--text-color); /* Will change with theme */
   display: flex; 
   align-items: center;
 }
@@ -44,17 +51,14 @@
 }
 .nav-brand .font-hacker { /* For "Portfolio" text */
   font-size: 1.1em;
-  font-weight: 700; /* Explicitly making it bold */
-  /* margin-left: 8px;  If you used this inline, it's fine, or move it here */
+  font-weight: 700; /* Ensures it's bold, color inherited from .font-hacker in thm-theme */
 }
 
 .nav-menu { 
   display: flex;
   gap: 25px;
 }
-#primary-navigation.nav-menu { 
-   /* Existing flex styles are fine */
-}
+/* #primary-navigation.nav-menu specific selector not strictly needed if .nav-menu is unique enough */
 
 .nav-link {
   font-family: var(--font-secondary);
@@ -63,7 +67,7 @@
   letter-spacing: 1px;
   padding: 5px 0;
   position: relative;
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
 }
 .nav-link::after {
   content: '';
@@ -72,8 +76,8 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--accent-color);
-  transition: width 0.3s ease;
+  background-color: var(--accent-color); /* Underline color will change with theme */
+  transition: width 0.3s ease, background-color 0.3s ease; /* Added bg transition */
 }
 .nav-link:hover::after,
 .nav-link.active::after {
@@ -81,7 +85,7 @@
 }
 .nav-link:hover,
 .nav-link.active {
-  color: var(--text-color);
+  color: var(--text-color); /* Will change with theme */
 }
 
 .nav-toggle {
@@ -96,7 +100,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: var(--text-color);
+  background-color: var(--text-color); /* Hamburger lines will change with theme */
   position: relative;
   transition: background-color 0.3s ease, transform 0.3s ease; 
 }
@@ -106,41 +110,80 @@
   position: absolute;
   width: 25px;
   height: 3px;
-  background-color: var(--text-color);
+  background-color: var(--text-color); /* Hamburger lines will change with theme */
   left: 0;
-  transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+  transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease; /* Added bg transition */
 }
 .hamburger::before { top: -8px; }
 .hamburger::after { bottom: -8px; }
 
-.nav-toggle.active .hamburger { background-color: transparent; }
+.nav-toggle.active .hamburger { background-color: transparent !important; } 
 .nav-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
 .nav-toggle.active .hamburger::after { transform: rotate(-45deg); bottom: 0; }
 
 @media (max-width: 768px) { 
-  #primary-navigation.nav-menu { 
+  #primary-navigation.nav-menu,
+  #primary-navigation-blog.nav-menu,
+  #primary-navigation-post.nav-menu,
+  #primary-navigation-post2.nav-menu { /* Added selectors for blog/post pages */
     position: fixed;
     top: 0;
     right: -100%; 
     width: 70%;
     max-width: 300px;
     height: 100vh;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--secondary-bg-color); /* Will change with theme */
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 30px;
     padding-top: 80px; 
-    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-    border-left: 1px solid var(--border-color);
+    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Default dark shadow */
+    border-left: 1px solid var(--border-color); /* Will change with theme */
   }
-  #primary-navigation.nav-menu.open { 
+  body.light-mode #primary-navigation.nav-menu.open,
+  body.light-mode #primary-navigation-blog.nav-menu.open,
+  body.light-mode #primary-navigation-post.nav-menu.open,
+  body.light-mode #primary-navigation-post2.nav-menu.open {
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1); /* Lighter shadow for open menu in light mode */
+  }
+
+  #primary-navigation.nav-menu.open,
+  #primary-navigation-blog.nav-menu.open,
+  #primary-navigation-post.nav-menu.open,
+  #primary-navigation-post2.nav-menu.open {
     right: 0;
   }
   .nav-toggle { display: block; } 
   .nav-link { font-size: 1.1rem; }
 }
+
+/* --- Theme Toggle Button --- */
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--border-color); /* Border color changes with theme */
+  color: var(--text-color-muted);       /* Icon color changes with theme */
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem; /* Adjust icon size if needed */
+  margin-left: 15px; /* Space from other nav items */
+  display: flex; 
+  align-items: center;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.theme-toggle-btn:hover,
+.theme-toggle-btn:focus {
+  color: var(--accent-color);         /* Hover color changes with theme */
+  border-color: var(--accent-color);  /* Hover border changes with theme */
+  outline: none;
+}
+.theme-toggle-btn .fa-sun { display: none; } /* Default: dark mode, so sun is hidden */
+.theme-toggle-btn .fa-moon { display: inline-block; } /* Default: dark mode, moon shown */
+
+body.light-mode .theme-toggle-btn .fa-sun { display: inline-block; } /* Show sun in light mode */
+body.light-mode .theme-toggle-btn .fa-moon { display: none; }    /* Hide moon in light mode */
 
 /* --- Hero Section --- */
 .hero-section {
@@ -151,17 +194,25 @@
   justify-content: center;
   text-align: center;
   padding: 100px 5% 50px;
-  position: relative; /* <<< ADDED for canvas positioning */
-  background: var(--primary-bg-color); 
-  overflow: hidden; /* <<< ADDED to contain canvas */
+  position: relative; 
+  background: var(--primary-bg-color); /* Will change with theme */
+  overflow: hidden; 
+  transition: background-color 0.3s ease; /* For theme switch */
 }
-.hero-background-canvas { /* <<< NEW for Matrix rain */
+.hero-background-canvas { 
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* Behind hero content */
+  z-index: 0; 
+}
+body.light-mode .hero-background-canvas {
+  display: none; /* Hide Matrix rain in light mode */
+}
+body.light-mode .hero-section { /* Optional: Specific background for light mode hero */
+  /* background: linear-gradient(135deg, #eaf2f8 0%, #ffffff 100%); */
+  /* Or simply rely on --primary-bg-color which is white for light-mode */
 }
 .hero-content {
   display: flex;
@@ -170,8 +221,8 @@
   gap: 40px;
   width: 100%;
   max-width: 1000px;
-  position: relative; /* <<< ADDED for z-index stacking */
-  z-index: 1;       /* <<< ADDED to be above canvas */
+  position: relative; 
+  z-index: 1;       
 }
 .hero-text { 
   flex: 1.5;
@@ -180,10 +231,11 @@
 .hero-text h1 {
   margin-bottom: 15px;
   line-height: 1.2;
+  /* Color will be handled by general h1 style in thm-theme.css */
 }
 .hero-text .subtitle {
   font-size: 1.2rem;
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
   margin-bottom: 30px;
   max-width: 500px;
 }
@@ -199,20 +251,23 @@
   width: 100%;
   height: auto;
   border-radius: 50%;
-  border: 5px solid var(--accent-color);
-  box-shadow: 0 0 25px rgba(46, 204, 113, 0.3); 
+  border: 5px solid var(--accent-color); /* Will change with theme */
+  box-shadow: 0 0 25px rgba(46, 204, 113, 0.3); /* Default dark mode shadow */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* For theme switch */
 }
-.hero-graphic { color: var(--accent-color); } 
+body.light-mode .hero-image {
+  box-shadow: 0 0 25px rgba(0, 88, 156, 0.2); /* Blueish shadow for Light Mode */
+}
 
 .scroll-down-indicator {
   position: absolute;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  color: var(--accent-color);
+  color: var(--accent-color); /* Will change with theme */
   font-size: 1.5rem;
   opacity: 0.7;
-  z-index: 1; /* Ensure it's above canvas if overlapping */
+  z-index: 1; 
 }
 .scroll-down-indicator:hover { opacity: 1; }
 
@@ -224,7 +279,7 @@
   gap: 40px;
   align-items: flex-start; 
 }
-.about-text { flex: 2; padding-left: 40px;}
+.about-text { flex: 2; padding-left: 40px;} /* Your existing style */
 .about-image { 
   flex: 1;
   text-align: center; 
@@ -234,11 +289,9 @@
    border-radius: 8px; 
    opacity: 0.8; 
 }
-.about-text p { /* NOTE: flex:2 was here, it should be on .about-text itself */
-  /* flex: 2; */ /* This property is for flex items, not their children directly. */
-  /* padding-left: 40px; */ /* This seems like an unusual style here, review if intended */
+.about-text p {
   margin-bottom: 1.5em;
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
   font-size: 1.05rem;
 }
 
@@ -251,13 +304,13 @@
   margin: 0 auto;
 }
 .skill-card h3 {
-  color: var(--accent-color-secondary);
+  /* color will be handled by general h3 style in thm-theme.css and its light-mode override */
   margin-bottom: 20px; 
   font-family: var(--font-primary);
 }
 .skill-card h3 i {
   margin-right: 10px;
-  color: var(--accent-color);
+  color: var(--accent-color); /* Will change with theme */
 }
 .skills-list-progress {
   list-style: none;
@@ -279,27 +332,28 @@
 }
 .skill-name {
   font-size: 0.95rem;
-  color: var(--text-color);
+  color: var(--text-color); /* Will change with theme */
   font-weight: 400;
 }
 .skill-percentage {
   font-size: 0.9rem;
-  color: var(--accent-color);
+  color: var(--accent-color); /* Will change with theme */
   font-weight: 700;
 }
 .progress-bar-container {
   width: 100%;
-  background-color: var(--border-color);
+  background-color: var(--border-color); /* Will change with theme */
   border-radius: 5px;
   height: 10px;
   overflow: hidden;
+  transition: background-color 0.3s ease; /* For theme switch */
 }
 .progress-bar {
   height: 100%;
-  background-color: var(--accent-color); 
+  background-color: var(--accent-color); /* Will change with theme */
   border-radius: 5px;
   width: 0; 
-  transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out, background-color 0.3s ease; /* For theme switch */
 }
 
 /* --- Experience Section (Timeline) --- */
@@ -312,11 +366,12 @@
   content: '';
   position: absolute;
   width: 3px;
-  background-color: var(--border-color);
+  background-color: var(--border-color); /* Will change with theme */
   top: 0;
   bottom: 0;
   left: 50%;
   margin-left: -1.5px;
+  transition: background-color 0.3s ease; /* For theme switch */
 }
 .timeline-item { 
   padding: 10px 40px;
@@ -328,8 +383,8 @@
   position: absolute;
   width: 50px;
   height: 50px;
-  background-color: var(--secondary-bg-color);
-  border: 3px solid var(--accent-color);
+  background-color: var(--secondary-bg-color); /* Will change with theme */
+  border: 3px solid var(--accent-color);    /* Will change with theme */
   top: 25px;
   border-radius: 50%;
   z-index: 1;
@@ -337,7 +392,8 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  color: var(--accent-color);
+  color: var(--accent-color); /* Will change with theme */
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 .timeline-item:nth-child(odd) { left: 0; }
 .timeline-item:nth-child(odd) .timeline-icon { right: -25px; }
@@ -346,25 +402,26 @@
 
 .timeline-content {
   padding: 20px 30px;
-  background-color: var(--card-bg-color);
+  background-color: var(--card-bg-color); /* Will change with theme (from thm-theme) */
   position: relative;
   border-radius: 6px;
-  box-shadow: var(--card-shadow);
-  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow); /* Will change with theme (from thm-theme) */
+  border: 1px solid var(--border-color); /* Will change with theme */
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .timeline-content h3 {
+  /* color: var(--accent-color-secondary); Will use theme's secondary accent */
   margin-bottom: 5px;
-  color: var(--accent-color-secondary);
 }
 .experience-details {
   font-style: italic;
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
   font-size: 0.9rem;
   margin-bottom: 10px;
 }
 .timeline-content p:not(.experience-details) {
   font-size: 0.95rem;
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
 }
 
 /* --- Projects Section --- */
@@ -379,16 +436,18 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  /* Background, shadow, border handled by .project-card in thm-theme.css */
 }
 .project-image { 
   width: 100%;
   height: 200px; 
   overflow: hidden;
-  background-color: var(--secondary-bg-color);
+  background-color: var(--secondary-bg-color); /* Will change with theme, for fallback */
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0; 
+  transition: background-color 0.3s ease;
 }
 .project-image img {
   width: 100%;
@@ -401,7 +460,7 @@
 }
 .project-icon { 
   font-size: 4rem;
-  color: var(--accent-color);
+  color: var(--accent-color); /* Will change with theme */
   opacity: 0.5;
 }
 .project-content {
@@ -411,12 +470,12 @@
   flex-direction: column;
 }
 .project-content h3 {
+  /* color: var(--accent-color-secondary); Will use theme's secondary accent */
   margin-bottom: 10px;
-  color: var(--accent-color-secondary);
 }
 .project-content p { 
   font-size: 0.95rem;
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
   margin-bottom: 15px;
 }
 .project-content p.project-tags { 
@@ -451,136 +510,109 @@
 .blog-post-title {
   font-size: 1.4rem;
   margin-bottom: 10px;
-  color: var(--accent-color-secondary);
+  /* color: var(--accent-color-secondary); Will use theme's secondary accent */
 }
 .blog-post-meta {
   font-size: 0.8rem;
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
   margin-bottom: 10px;
   font-family: var(--font-secondary);
 }
 .blog-post-category {
-  background-color: rgba(52, 152, 219, 0.15);
-  color: var(--accent-color-secondary);
+  background-color: rgba(52, 152, 219, 0.15); /* Default dark mode secondary accent */
+  color: var(--accent-color-secondary);       /* Will change with theme */
   padding: 3px 6px;
   border-radius: 3px;
   margin-left: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.light-mode .blog-post-category {
+  background-color: rgba(0, 123, 255, 0.1); /* Lighter blue for light mode */
 }
 .blog-post-excerpt {
   font-size: 0.9rem;
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
   margin-bottom: 15px;
 }
 
 
 /* --- Contact Section --- */
 #contact .container { max-width: 800px; }
-
 .contact-content {
   text-align: center;
 }
-
-.contact-content > p { /* The introductory paragraph */
+.contact-content > p { 
   font-size: 1.1rem;
-  color: var(--text-color-muted);
-  margin-bottom: 30px; /* Space between intro text and icons */
+  color: var(--text-color-muted); /* Will change with theme */
+  margin-bottom: 30px; 
 }
 
-/* Styles for the ICON-ONLY contact links container */
-.contact-methods-icons { /* << RENAMED from your old .contact-methods for clarity */
+/* Styles for ICON-ONLY contact links (as per your index.html structure) */
+.contact-methods-icons {
   display: flex;
-  flex-direction: row;         /* Arrange icons horizontally */
-  justify-content: center;     /* Center the group of icons */
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: 35px;                   /* Increased space between icons */
-  margin-top: 20px;            /* Space above the icons */
-  margin-bottom: 35px;         /* Space below the icons, before the "Send me an Email" button */
+  gap: 35px;
+  margin-top: 20px;
+  margin-bottom: 35px;
 }
-
-/* Styles for EACH ICON-ONLY link */
-.contact-icon-link { /* << RENAMED from your old .contact-link */
-  color: var(--text-color-muted); /* Default color of the icon */
-  font-size: 2.5rem;             /* MAKE ICONS LARGER - Adjust this value as desired */
-  padding: 10px;                 /* Add some padding around the icon to increase clickable area */
+.contact-icon-link {
+  color: var(--text-color-muted); /* Will change with theme */
+  font-size: 2.5rem;
+  padding: 10px;
   transition: color 0.3s ease, transform 0.3s ease;
-  line-height: 1;                /* Helps with consistent vertical alignment of icons */
-  display: inline-block;         /* Ensure it behaves like a block for padding/transform */
+  line-height: 1;
+  display: inline-block;
 }
-
 .contact-icon-link:hover,
 .contact-icon-link:focus {
-  color: var(--accent-color);    /* Change color on hover/focus to your accent color */
-  transform: scale(1.15) translateY(-4px); /* Grow and lift effect */
+  color: var(--accent-color); /* Will change with theme */
+  transform: scale(1.15) translateY(-4px);
   outline: none;
 }
-
-/* The <i> tag itself inside .contact-icon-link doesn't need separate styling for color/size now,
-   as it will inherit from .contact-icon-link. You can remove the old .contact-link i {} rule.
-*/
-
-.cta-button {
-  margin-top: 20px; /* This is for the "Send me an Email" button */
-}
-
-/* 
-   Your OLD CSS for .contact-methods and .contact-link (for icon+text)
-   can be commented out or removed if you are ONLY using the icon-only style
-   for this section in index.html.
-*/
+/* Commenting out old .contact-methods and .contact-link as they are not used for icon-only */
 /*
-.contact-methods {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  margin-bottom: 30px;
-}
-.contact-link {
-  font-size: 1.1rem;
-  color: var(--text-color-muted);
-  transition: color 0.3s ease, transform 0.3s ease;
-  display: inline-flex; 
-  align-items: center;
-  gap: 10px;
-}
-.contact-link:hover {
-  color: var(--accent-color);
-  transform: translateX(5px);
-}
-.contact-link i {
-  color: var(--accent-color);
-  font-size: 1.3rem;
-}
+.contact-methods { ... }
+.contact-link { ... }
+.contact-link i { ... }
 */
+
+.cta-button { margin-top: 20px; /* This will be overridden by inline style in HTML if present */ }
 
 
 /* --- Footer --- */
 .footer {
   text-align: center;
   padding: 40px 20px;
-  background-color: var(--secondary-bg-color);
-  border-top: 1px solid var(--border-color);
+  background-color: var(--secondary-bg-color); /* Will change with theme */
+  border-top: 1px solid var(--border-color);   /* Will change with theme */
   font-size: 0.9rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* For theme switch */
 }
 .footer p {
   margin: 8px 0;
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
 }
 .footer .font-hacker {
-  color: var(--accent-color-secondary); 
+  /* color: var(--accent-color-secondary); Will use theme's secondary accent */
 }
 .social-icons {
   margin-bottom: 15px;
 }
 .social-icons a {
-  color: var(--text-color-muted);
+  color: var(--text-color-muted); /* Will change with theme */
   font-size: 1.5rem;
   margin: 0 10px;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .social-icons a:hover {
-  color: var(--accent-color);
+  color: var(--accent-color); /* Will change with theme */
   transform: scale(1.1);
+}
+/* Ensure heart icon color in footer "Built with" also uses the current theme's accent color */
+.footer .fa-heart {
+  color: var(--accent-color) !important; /* !important might be needed to override inline style, better to remove inline style from HTML */
 }
 
 
@@ -602,7 +634,7 @@
 }
 
 @media (max-width: 768px) {
-  /* Mobile nav styles already handled above with #primary-navigation.nav-menu */
+  /* Mobile nav styles already handled */
 
   .timeline::after { left: 31px; }
   .timeline-item {
@@ -626,6 +658,6 @@
   .btn { width: 100%; max-width: 250px; }
   
   .skills-grid, .projects-grid, .blog-grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
 }
