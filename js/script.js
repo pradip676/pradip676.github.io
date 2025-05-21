@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Hero Text Typing Animation ---
   const typingElement = document.querySelector('.animate-typing');
   if (typingElement) {
-    let originalHTML = typingElement.innerHTML; // Store original HTML to preserve spans
+    let originalHTML = typingElement.innerHTML; 
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = originalHTML;
     const plainText = tempDiv.textContent || tempDiv.innerText || ""; 
@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
             while(originalHTMLIndex < originalHTML.length && !found) {
                 currentHTMLConstruction += originalHTML[originalHTMLIndex];
                 if (originalHTML[originalHTMLIndex] === plainText[i] && !(originalHTML[originalHTMLIndex+1] && originalHTML[originalHTMLIndex+1] !== ' ' && originalHTML[originalHTMLIndex-1] !== ' ' && originalHTML.substring(originalHTMLIndex).startsWith(plainText.substring(i)))) {
-                     // Improved check to better handle matching characters within tags vs actual text
                     if(!((plainText[i] === '<' || plainText[i] === '>') && originalHTML.substring(originalHTMLIndex).indexOf(plainText[i] === '<' ? '>' : '<', 1) !== -1 ) ){
                          found = true;
                     }
@@ -119,44 +118,58 @@ document.addEventListener('DOMContentLoaded', () => {
     skillObserver.observe(item);
   });
 
-  // --- Matrix Rain Background for Hero Section (Assuming this is your existing Matrix JS) ---
+  // --- Matrix Rain Background for Hero Section ---
   const canvas = document.getElementById('matrix-canvas');
-  let matrixAnimationIntervalId; // Store interval ID for Matrix
+  let matrixAnimationIntervalId; 
 
-  function startMatrixAnimation() { // Encapsulated start for Matrix
+  function startMatrixAnimation() { 
     if (!canvas) return;
+    // Ensure canvas is visible before starting (e.g., not in light mode)
+    if (document.body.classList.contains('light-mode')) {
+        canvas.style.display = 'none';
+        if (canvas.animationIntervalId) {
+            clearInterval(canvas.animationIntervalId);
+            canvas.animationIntervalId = null;
+        }
+        return;
+    }
+    canvas.style.display = 'block'; // Ensure it's visible for dark mode
+
     const ctx = canvas.getContext('2d');
 
     const setupCanvas = () => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
     };
-    setupCanvas();
-    // window.addEventListener('resize', setupCanvas); // Resize handled below with drops
-
+    
     const characters = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const fontSize = 14;
-    let columns = Math.floor(canvas.width / fontSize);
-
+    let columns; // Defined in setupDrops
     const drops = [];
-    const setupDrops = () => {
+
+    const setupDropsAndCanvas = () => { // Combined setup
+        setupCanvas(); // Setup canvas dimensions first
         columns = Math.floor(canvas.width / fontSize);
         drops.length = 0; 
         for (let x = 0; x < columns; x++) {
             drops[x] = 1 + Math.random() * canvas.height;
         }
     };
-    setupDrops(); 
-    window.addEventListener('resize', () => { 
-        setupCanvas();
-        setupDrops();
-    });
+    setupDropsAndCanvas(); 
+    window.addEventListener('resize', setupDropsAndCanvas);
+
 
     let matrixAccentColor = '#2ecc71'; 
     let matrixBgColor = 'rgba(26, 29, 36, 0.05)'; 
 
     function drawMatrix() {
-      if (document.body.classList.contains('light-mode')) return; // Don't draw if in light mode
+      if (document.body.classList.contains('light-mode') || !canvas || canvas.offsetParent === null) { // Check if canvas is visible
+          if (canvas && canvas.animationIntervalId) {
+              clearInterval(canvas.animationIntervalId);
+              canvas.animationIntervalId = null;
+          }
+          return; 
+      }
 
       ctx.fillStyle = matrixBgColor; 
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -174,7 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if (matrixAnimationIntervalId) clearInterval(matrixAnimationIntervalId);
+    if (matrixAnimationIntervalId) clearInterval(matrixAnimationIntervalId); // Clear any existing interval
+    if (canvas.animationIntervalId) clearInterval(canvas.animationIntervalId); // Also check property on canvas
     
     const rootStyles = getComputedStyle(document.documentElement);
     matrixAccentColor = rootStyles.getPropertyValue('--accent-color').trim() || '#2ecc71';
@@ -188,46 +202,51 @@ document.addEventListener('DOMContentLoaded', () => {
         matrixBgColor = 'rgba(26, 29, 36, 0.05)'; 
     }
     matrixAnimationIntervalId = setInterval(drawMatrix, 50);
-    canvas.animationIntervalId = matrixAnimationIntervalId; // Store on canvas element
+    canvas.animationIntervalId = matrixAnimationIntervalId; 
   }
-  // End of Matrix Rain JS Block (original part)
+  // End of Matrix Rain JS Block
 
-  // === ADD THIS THEME TOGGLE FUNCTIONALITY ===
+  // === THEME TOGGLE FUNCTIONALITY ===
   const themeToggleBtn = document.getElementById('theme-toggle');
   const bodyElement = document.body;
 
   const applyTheme = (theme) => {
-    const matrixCanvas = document.getElementById('matrix-canvas'); // Get canvas inside applyTheme
+    const matrixCanvasRef = document.getElementById('matrix-canvas'); 
     if (theme === 'light') {
       bodyElement.classList.add('light-mode');
-      if (matrixCanvas) {
-          matrixCanvas.style.display = 'none';
-          if (matrixCanvas.animationIntervalId) { // Clear interval if it exists
-              clearInterval(matrixCanvas.animationIntervalId);
-              matrixCanvas.animationIntervalId = null;
+      if (matrixCanvasRef) {
+          matrixCanvasRef.style.display = 'none';
+          if (matrixCanvasRef.animationIntervalId) { 
+              clearInterval(matrixCanvasRef.animationIntervalId);
+              matrixCanvasRef.animationIntervalId = null;
           }
       }
     } else { // 'dark'
       bodyElement.classList.remove('light-mode');
-      if (matrixCanvas) {
-          matrixCanvas.style.display = 'block';
-          startMatrixAnimation(); // Restart Matrix animation for dark mode
+      if (matrixCanvasRef) {
+          // matrixCanvasRef.style.display = 'block'; // Handled by startMatrixAnimation
+          if (typeof startMatrixAnimation === 'function') {
+            startMatrixAnimation(); 
+          }
       }
     }
     localStorage.setItem('theme', theme);
   };
 
   const savedTheme = localStorage.getItem('theme');
+  
+  // CORRECTED CRITICAL PART FOR DEFAULT THEME
   if (savedTheme) {
-    applyTheme(savedTheme);
+    applyTheme(savedTheme); 
   } else {
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (prefersDark) {
-      applyTheme('dark');
+    const prefersDarkFromOS = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDarkFromOS) {
+      applyTheme('dark'); 
     } else {
-      applyTheme('light');
+      applyTheme('dark'); // <<<< ENSURES DARK IS THE ULTIMATE DEFAULT
     }
   }
+  // END OF CORRECTED CRITICAL PART
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
@@ -238,24 +257,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  // Initial call to start Matrix if in dark mode and canvas exists
-  if (canvas && !bodyElement.classList.contains('light-mode')) {
+  
+  // Initial call to start Matrix (only if in dark mode and canvas exists)
+  // This runs *after* the initial theme has been set by applyTheme above.
+  if (canvas && !bodyElement.classList.contains('light-mode') && typeof startMatrixAnimation === 'function') {
       startMatrixAnimation();
   }
 
   document.addEventListener("visibilitychange", () => {
-    const matrixCanvas = document.getElementById('matrix-canvas');
-    if (!matrixCanvas || bodyElement.classList.contains('light-mode')) return; // Do nothing if no canvas or in light mode
+    const matrixCanvasVisibility = document.getElementById('matrix-canvas'); 
+    if (!matrixCanvasVisibility || bodyElement.classList.contains('light-mode')) return;
 
     if (document.hidden) {
-      if (matrixCanvas.animationIntervalId) {
-        clearInterval(matrixCanvas.animationIntervalId);
+      if (matrixCanvasVisibility.animationIntervalId) { 
+        clearInterval(matrixCanvasVisibility.animationIntervalId);
+        // matrixCanvasVisibility.animationIntervalId = null; // Keep it nullified
       }
     } else {
-      startMatrixAnimation(); // Restart if tab becomes visible and in dark mode
+      if (typeof startMatrixAnimation === 'function') { 
+        startMatrixAnimation(); 
+      }
     }
   });
   // === END OF THEME TOGGLE FUNCTIONALITY ===
-
 
 }); // End of DOMContentLoaded
