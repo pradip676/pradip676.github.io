@@ -241,22 +241,54 @@ body.light-mode .hero-section { /* Optional: Specific background for light mode 
 }
 .hero-buttons { display: flex; gap: 15px; }
 .hero-image-container { 
-  flex: 1;
-  display: flex;
+  flex: 1; /* Keep for layout */
+  display: flex; /* For centering the image within if needed */
   justify-content: center;
   align-items: center;
+  position: relative; /* Needed for positioning pseudo-element or direct child absolutely */
+  /* The container itself can be the background shape or we use a pseudo-element */
 }
+
+/* We'll use a pseudo-element for the background shape for more flexibility */
+.hero-image-container::before {
+  content: '';
+  position: absolute;
+  /* Make it slightly larger than the image will be */
+  width: 300px;  /* Adjust size of the background shape */
+  height: 300px; /* Adjust size of the background shape */
+  background-color: var(--accent-color); /* Or your --secondary-bg-color for a more subtle effect */
+  border-radius: 15px; /* Or 50% for a circular background shape */
+  z-index: 0; /* Behind the actual image */
+  /* Optional offset for the background shape */
+  /* top: 50%; 
+  left: 50%;
+  transform: translate(-45%, -45%); */ /* Example to shift it slightly up and left */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Shadow for the background shape */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.light-mode .hero-image-container::before {
+  background-color: var(--accent-color); /* Will be blue */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
 .hero-image {
-  max-width: 300px;
+  max-width: 270px; /* Slightly smaller than the ::before pseudo-element's shape */
   width: 100%;
   height: auto;
-  border-radius: 50%;
-  border: 5px solid var(--accent-color); /* Will change with theme */
-  box-shadow: 0 0 25px rgba(46, 204, 113, 0.3); /* Default dark mode shadow */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* For theme switch */
+  object-fit: cover;
+  border-radius: 10px; /* Or 50% for a circular image */
+  /* This border matches the page background, creating the "cutout" feel */
+  border: 5px solid var(--primary-bg-color); 
+  position: relative; /* To ensure it's above the ::before pseudo-element */
+  z-index: 1;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Optional: a very subtle shadow on the image itself */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 body.light-mode .hero-image {
-  box-shadow: 0 0 25px rgba(0, 88, 156, 0.2); /* Blueish shadow for Light Mode */
+  border: 5px solid var(--primary-bg-color); /* Will be white border in light mode */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 
 .scroll-down-indicator {
