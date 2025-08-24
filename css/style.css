@@ -240,30 +240,27 @@ body.light-mode .hero-section { /* Optional: Specific background for light mode 
   max-width: 500px;
 }
 .hero-buttons { display: flex; gap: 15px; }
-.hero-image-container { 
-  flex: 1; /* Keep for layout */
-  display: flex; /* For centering the image within if needed */
-  justify-content: center;
+.hero-image-container {
+  position: relative;      /* Key fix: Allows ::before to align correctly */
+  width: 300px;            /* Matches the size of ::before */
+  height: auto;
+  display: flex;
   align-items: center;
-  position: relative; /* Needed for positioning pseudo-element or direct child absolutely */
-  /* The container itself can be the background shape or we use a pseudo-element */
+  justify-content: center;
+  z-index: 1;
 }
 
-/* We'll use a pseudo-element for the background shape for more flexibility */
 .hero-image-container::before {
   content: '';
   position: absolute;
-  /* Make it slightly larger than the image will be */
-  width: 300px;  /* Adjust size of the background shape */
-  height: 300px; /* Adjust size of the background shape */
-  background-color: var(--accent-color); /* Or your --secondary-bg-color for a more subtle effect */
-  border-radius: 15px; /* Or 50% for a circular background shape */
-  z-index: 0; /* Behind the actual image */
-  /* Optional offset for the background shape */
-  /* top: 50%; 
-  left: 50%;
-  transform: translate(-45%, -45%); */ /* Example to shift it slightly up and left */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Shadow for the background shape */
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background-color: var(--accent-color);
+  border-radius: 15px;
+  z-index: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
