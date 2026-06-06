@@ -43,24 +43,50 @@ const yrEl = document.getElementById('yr');
 if (yrEl) yrEl.textContent = new Date().getFullYear();
 
 // ── Newsletter form ──────────────────────────────────────────────
+// To receive emails: sign up at formspree.io, create a form,
+// then replace YOUR_FORM_ID below with your form's ID (e.g. "xabcdefg").
+const FORMSPREE_ID = 'YOUR_FORM_ID';
+
 const form = document.getElementById('newsletterForm');
 if (form) {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
         e.preventDefault();
         const input = form.querySelector('input[type="email"]');
         const btn   = form.querySelector('button[type="submit"]');
         if (!input || !btn) return;
 
-        const original = btn.textContent;
-        btn.textContent = "You're in! 🎉";
-        btn.style.cssText = 'background:#22c55e;border-color:#22c55e';
-        input.value = '';
-        input.disabled = btn.disabled = true;
+        const email = input.value.trim();
+        if (!email) return;
 
-        setTimeout(() => {
-            btn.textContent = original;
-            btn.style.cssText = '';
-            input.disabled = btn.disabled = false;
-        }, 5000);
+        const original = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = input.disabled = true;
+
+        try {
+            const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, _replyto: email })
+            });
+
+            if (res.ok) {
+                btn.textContent = "You're in.";
+                btn.style.background = '#16a34a';
+                btn.style.borderColor = '#16a34a';
+                input.value = '';
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.style.background = '';
+                    btn.style.borderColor = '';
+                    input.disabled = btn.disabled = false;
+                }, 6000);
+            } else {
+                throw new Error();
+            }
+        } catch {
+            btn.textContent = 'Try again.';
+            btn.disabled = input.disabled = false;
+            setTimeout(() => { btn.textContent = original; }, 3000);
+        }
     });
 }
