@@ -6,4 +6,4 @@ I'm a Cybersecurity major with a Finance minor, passionate about building secure
 
 🔗 Visit: [https://pradipsapkota.com](https://pradipsapkota.com)
 
-📫 Contact: pradipsapkota279@gmail.com
+📫 Contact: pradip@pradipsapkota.com

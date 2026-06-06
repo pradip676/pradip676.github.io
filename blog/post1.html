@@ -1,171 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Understanding Phishing Attacks in 2024 - Pradip Sapkota</title>
-  <meta name="description" content="A deep dive into the latest phishing techniques, how to identify them, and crucial steps to protect yourself and your organization." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- IMPORTANT: Adjust CSS paths to be relative to the 'blog' folder -->
-  <link rel="stylesheet" href="../css/thm-theme.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <style>
-    .post-content { line-height: 1.8; }
-    .post-content h3 { margin-top: 2.5em; margin-bottom: 0.8em; color: var(--accent-color-secondary); }
-    .post-content h4 { margin-top: 2em; margin-bottom: 0.6em; color: var(--accent-color); }
-    .post-content ul { list-style: disc; margin-left: 20px; margin-bottom: 1em;}
-    .post-content p { margin-bottom: 1.2em; }
-    .post-meta-single { 
-        text-align: center; 
-        margin-bottom: 30px; 
-        color: var(--text-color-muted); 
-        font-family: var(--font-secondary);
-    }
-    .featured-image-single {
-        width: 100%;
-        max-height: 400px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 30px;
-    }
-    .back-to-blog {
-        display: inline-block;
-        margin-bottom: 40px;
-        color: var(--accent-color);
-        font-family: var(--font-secondary);
-    }
-    .back-to-blog:hover {
-        text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Phishing Attacks in 2024 — Pradip Sapkota</title>
+    <meta name="description" content="A deep dive into the latest phishing techniques, how to identify them, and how to protect yourself and your organization.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <!-- Navigation (Same as other pages, ensure links are correct) -->
-  <header class="navigation">
-    <a class="nav-brand animate-on-load" href="../index.html#home"> <!-- Adjusted path -->
-      <span class="font-hacker" style="margin-left: 8px;">Portfolio</span> <!-- Or your logo -->
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation-post" aria-expanded="false">
-      <span class="hamburger"></span>
-    </button>
-    <nav id="primary-navigation-post" class="nav-menu" role="navigation">
-      <a class="nav-link" href="../index.html#home">Home</a>
-      <a class="nav-link" href="../index.html#about">About</a>
-      <a class="nav-link" href="../index.html#skills">Skills</a>
-      <a class="nav-link" href="../index.html#experience">Experiences</a>
-      <a class="nav-link" href="../index.html#projects">Projects</a>
-      <a class="nav-link" href="../blog.html">Blog</a> <!-- Adjusted path -->
-      <a class="nav-link" href="../index.html#contact">Contact</a>
-      <!-- ADDED THEME TOGGLE BUTTON HERE -->
-      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme">
-        <i class="fas fa-sun"></i> <!-- Sun icon for light mode indication -->
-        <i class="fas fa-moon"></i> <!-- Moon icon for dark mode indication -->
-      </button>
-    </nav>
-  </header>
 
-  <main id="single-post" class="section-padding">
-    <div class="container" style="max-width: 800px;">
-        <a href="../blog.html" class="back-to-blog animate-on-scroll"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+    <!-- NAV -->
+    <header class="nav scrolled" id="nav">
+        <div class="nav__inner">
+            <a href="../index.html" class="nav__logo">Pradip Sapkota</a>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav__menu" id="navMenu">
+                <a href="../index.html#about"   class="nav__link">About</a>
+                <a href="../index.html#content" class="nav__link">Content</a>
+                <a href="../blog.html"          class="nav__link">Blog</a>
+                <a href="../index.html#contact" class="nav__link">Contact</a>
+                <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" class="nav__cta">
+                    <i class="fab fa-instagram"></i> Follow
+                </a>
+            </nav>
+        </div>
+    </header>
 
-        <h1 class="section-heading animate-on-scroll" style="text-align: left; font-size: 2.5rem; margin-bottom: 0.5em;">Understanding Phishing Attacks in 2024</h1>
-        <p class="post-meta-single animate-on-scroll">Published on: July 26, 2024 | Category: <span class="highlight-alt">Cybersecurity</span></p>
-        
-        <img src="../images/blog-post-phishing.png" alt="Phishing concept image" class="featured-image-single animate-on-scroll">
-
-        <article class="post-content animate-on-scroll">
-            <p>Phishing remains one of the most prevalent and effective cyber threats individuals and organizations face today. As attackers become more sophisticated, their tactics evolve, making it crucial to stay informed. In 2024, we're seeing a rise in AI-powered phishing, highly targeted spear-phishing, and smishing (SMS phishing). This post will delve into what these attacks look like and how you can bolster your defenses.</p>
-
-            <h3>What is Phishing?</h3>
-            <p>At its core, phishing is a deceptive attempt to acquire sensitive information like usernames, passwords, credit card details, or personal identification by masquerading as a trustworthy entity in an electronic communication. Typically delivered via email, instant messages, or text messages, phishing attacks lure unsuspecting victims into clicking malicious links or downloading harmful attachments.</p>
-
-            <h3>Common Phishing Techniques in 2024:</h3>
-            <h4>1. Spear Phishing & Whaling:</h4>
-            <p>Unlike generic phishing emails sent to a broad audience, spear phishing attacks are highly targeted. Attackers research their victims (individuals or specific roles within an organization) to craft personalized messages that appear legitimate. Whaling is a type of spear phishing aimed at high-profile targets like executives or administrators, often with the goal of significant financial theft or gaining high-level system access.</p>
-            <p><strong>Example:</strong> An email appearing to be from a CEO (using a spoofed or similar-looking email address) asking an employee in finance to urgently process a wire transfer.</p>
-
-            <h4>2. AI-Powered Phishing:</h4>
-            <p>Artificial intelligence is now being leveraged by attackers to create more convincing phishing emails. AI can generate human-like text, bypass spam filters more effectively, and even create deepfake audio or video for vishing (voice phishing) or video-based attacks. These emails often have fewer grammatical errors and can mimic writing styles more accurately.</p>
-
-            <h4>3. Smishing (SMS Phishing) & Vishing (Voice Phishing):</h4>
-            <p>Smishing involves sending fraudulent text messages that trick victims into clicking a link or calling a number. Vishing uses voice calls (often automated or using voice changers/deepfakes) to extract information. Both exploit the trust people often place in text messages and phone calls.</p>
-            <p><strong>Example Smishing:</strong> A text message claiming to be from a delivery service with a link to "track your package," which leads to a fake login page.</p>
-
-            <h4>4. QR Code Phishing (Quishing):</h4>
-            <p>A newer trend where attackers embed malicious links within QR codes. These can be placed on physical posters, sent in emails, or displayed on websites. Scanning the QR code can lead to a phishing site or initiate malware download.</p>
-
-            <h3>How to Identify and Protect Against Phishing:</h3>
-            <ul>
-                <li><strong>Scrutinize Sender Information:</strong> Always check the sender's email address carefully. Look for slight misspellings, different domains, or generic addresses.</li>
-                <li><strong>Beware of Urgency and Threats:</strong> Phishing attacks often create a sense of urgency (e.g., "account will be suspended") or fear to pressure you into acting quickly.</li>
-                <li><strong>Hover Before You Click:</strong> Before clicking any link, hover your mouse over it to see the actual destination URL. Ensure it matches the expected website.</li>
-                <li><strong>Check for Poor Grammar and Spelling:</strong> While AI is improving this, many phishing emails still contain noticeable errors.</li>
-                <li><strong>Never Provide Sensitive Information via Email/Text:</strong> Legitimate organizations will rarely ask for passwords, social security numbers, or full credit card details via email or unsolicited text.</li>
-                <li><strong>Use Multi-Factor Authentication (MFA):</strong> MFA adds an extra layer of security, making it harder for attackers to access your accounts even if they steal your password.</li>
-                <li><strong>Keep Software Updated:</strong> Regularly update your operating system, browser, and security software to patch known vulnerabilities.</li>
-                <li><strong>Educate Yourself and Your Team:</strong> Awareness training is crucial for organizations. Regular phishing simulations can help employees recognize and report suspicious messages.</li>
-                <li><strong>Verify Requests Through Other Channels:</strong> If you receive an unexpected or unusual request (especially for money or sensitive data), verify it by contacting the sender through a known, separate communication channel (e.g., call them on a trusted phone number).</li>
-            </ul>
-
-            <h3>Conclusion:</h3>
-            <p>Phishing is a persistent threat that requires continuous vigilance. By understanding the evolving tactics and practicing good cyber hygiene, you can significantly reduce your risk of falling victim. Stay alert, think before you click, and report any suspicious activity.</p>
-        </article>
+    <!-- POST HERO -->
+    <div class="post-hero">
+        <span class="card__tag">Cybersecurity</span>
+        <h1 class="post-hero__title">Understanding Phishing Attacks in 2024</h1>
+        <p class="post-hero__meta">July 26, 2024 · 8 min read</p>
     </div>
-  </main>
 
-  <!-- Footer (Same as other pages, ensure links are correct) -->
-  <footer class="footer">
-    <div class="social-icons" aria-label="Social and contact links">
-      <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" aria-label="LinkedIn profile of Pradip Sapkota" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-      <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub profile of Pradip Sapkota" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
-      <a href="mailto:pradipsapkota279@gmail.com" aria-label="Email Pradip Sapkota"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-  </div>
-    <p class="font-hacker">© <span id="currentYearSinglePost"></span> Pradip Sapkota. All rights reserved.</p>
-  </footer>
+    <!-- POST BODY -->
+    <article class="post-body">
+        <a href="../blog.html" class="post-back"><i class="fas fa-arrow-left"></i> Back to Blog</a>
 
-  <script>
-    // Basic JS for single post page
-    if (document.getElementById('currentYearSinglePost')) {
-        document.getElementById('currentYearSinglePost').textContent = new Date().getFullYear();
-    }
-    // Simplified Nav Toggle for single post page (assumes nav-menu and nav-toggle classes are standard)
-    const navTogglePost = document.querySelector('.nav-toggle');
-    const navMenuPost = document.getElementById('primary-navigation-post'); // Use ID
-    if(navTogglePost && navMenuPost) {
-        navTogglePost.addEventListener('click', () => {
-            const isOpen = navMenuPost.classList.toggle('open');
-            navTogglePost.classList.toggle('active');
-            navTogglePost.setAttribute('aria-expanded', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
-        // Close mobile menu when a link is clicked
-        navMenuPost.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenuPost.classList.contains('open')) {
-                    navMenuPost.classList.remove('open');
-                    navTogglePost.classList.remove('active');
-                    navTogglePost.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-    }
-    // Scroll animations for single post page
-    const postElementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-    const observerPost = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            }
-        });
-    }, { threshold: 0.1 });
-    postElementsToAnimate.forEach(el => observerPost.observe(el));
-  </script>
+        <p>Phishing remains one of the most prevalent and effective cyber threats individuals and organizations face today. As attackers become more sophisticated, their tactics evolve — making it crucial to stay informed. In 2024, we're seeing a rise in AI-powered phishing, highly targeted spear-phishing, and smishing (SMS phishing). This post dives into what these attacks look like and how you can bolster your defenses.</p>
 
-  <!-- **** ADD THIS LINE TO LOAD THE GLOBAL SCRIPT WITH THEME TOGGLE LOGIC **** -->
-  <script src="../js/script.js" defer></script>
+        <h2>What is Phishing?</h2>
+        <p>At its core, phishing is a deceptive attempt to acquire sensitive information like usernames, passwords, credit card details, or personal identification by masquerading as a trustworthy entity in an electronic communication. Typically delivered via email, instant messages, or text messages, phishing attacks lure unsuspecting victims into clicking malicious links or downloading harmful attachments.</p>
 
+        <h2>Common Phishing Techniques in 2024</h2>
+
+        <h3>1. Spear Phishing & Whaling</h3>
+        <p>Unlike generic phishing emails sent to a broad audience, spear phishing attacks are highly targeted. Attackers research their victims (individuals or specific roles within an organization) to craft personalized messages that appear legitimate. Whaling is a type of spear phishing aimed at high-profile targets like executives or administrators, often with the goal of significant financial theft or gaining high-level system access.</p>
+        <p><strong>Example:</strong> An email appearing to be from a CEO asking an employee in finance to urgently process a wire transfer.</p>
+
+        <h3>2. AI-Powered Phishing</h3>
+        <p>Artificial intelligence is now being leveraged by attackers to create more convincing phishing emails. AI can generate human-like text, bypass spam filters more effectively, and even create deepfake audio or video for vishing or video-based attacks. These emails have fewer grammatical errors and can mimic writing styles with frightening accuracy.</p>
+
+        <h3>3. Smishing & Vishing</h3>
+        <p>Smishing involves sending fraudulent text messages that trick victims into clicking a link or calling a number. Vishing uses voice calls (often automated or using deepfakes) to extract information. Both exploit the trust people place in text messages and phone calls.</p>
+        <p><strong>Example:</strong> A text message claiming to be from a delivery service with a link to "track your package" — which leads to a fake login page.</p>
+
+        <h3>4. QR Code Phishing (Quishing)</h3>
+        <p>A newer trend where attackers embed malicious links within QR codes. These can be placed on physical posters, sent in emails, or displayed on websites. Scanning the QR code can lead to a phishing site or initiate a malware download.</p>
+
+        <h2>How to Protect Yourself</h2>
+        <ul>
+            <li><strong>Scrutinize sender information.</strong> Always check the sender's email address carefully. Look for slight misspellings, different domains, or generic addresses.</li>
+            <li><strong>Beware of urgency and threats.</strong> Phishing attacks often create a sense of urgency to pressure you into acting quickly without thinking.</li>
+            <li><strong>Hover before you click.</strong> Before clicking any link, hover your mouse over it to see the actual destination URL.</li>
+            <li><strong>Use Multi-Factor Authentication (MFA).</strong> MFA adds an extra layer of security, making it harder for attackers to access your accounts even if they steal your password.</li>
+            <li><strong>Never provide sensitive information via email/text.</strong> Legitimate organizations will rarely ask for passwords or financial details through unsolicited messages.</li>
+            <li><strong>Verify requests through other channels.</strong> If you receive an unusual request for money or sensitive data, verify it by contacting the sender through a known, separate communication channel.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>Phishing is a persistent threat that requires continuous vigilance. By understanding the evolving tactics and practicing good cyber hygiene, you can significantly reduce your risk of falling victim. Stay alert, think before you click, and report any suspicious activity.</p>
+    </article>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <span class="footer__logo">Pradip Sapkota</span>
+                    <p>Student. Builder. Entrepreneur.</p>
+                </div>
+                <nav class="footer__nav">
+                    <a href="../index.html#about">About</a>
+                    <a href="../index.html#content">Content</a>
+                    <a href="../blog.html">Blog</a>
+                    <a href="../index.html#contact">Contact</a>
+                </nav>
+                <div class="footer__social">
+                    <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/pradip676" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:pradip@pradipsapkota.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© <span id="yr"></span> Pradip Sapkota. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
 </body>
 </html>

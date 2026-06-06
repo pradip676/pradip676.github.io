@@ -1,297 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Pradip Sapkota – Cybersecurity student & Finance minor building secure, data‑driven solutions."/>
-    <title>Pradip Sapkota – Cybersecurity & Finance</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-RXf+QSDCUQs6xjzYk4WzXLgS4z5SR1oFbqF05f5gAc1mIoNmOzL+yFJ4Ew5dhpNhAb9YbChFz1aQ6rxWke8fZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/thm-theme.css"/>
-    <link rel="stylesheet" href="css/animations.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <style>
-      html{scroll-behavior:smooth}
-      .nav-logo { height: 40px; width: auto; vertical-align: middle; }
-    </style>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pradip Sapkota — Student to Entrepreneur</title>
+    <meta name="description" content="Pradip Sapkota — documenting the real journey of going from student to entrepreneur. Cybersecurity, tech, finance, and building in public.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <!-- ============================== Navigation ============================== -->
-    <header class="navigation">
-      <a class="nav-brand animate-on-load" href="#home">
-        <span class="font-hacker" style="margin-left: 8px;">Portfolio</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
-        <span class="hamburger" aria-hidden="true"></span>
-      </button>
-      <nav id="primary-navigation" class="nav-menu" role="navigation">
-        <a class="nav-link" href="#home">Home</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#experience">Experiences</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="blog.html">Blog</a>
-        <a class="nav-link" href="#contact">Contact</a>
-        <!-- ADDED THEME TOGGLE BUTTON HERE -->
-        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme">
-          <i class="fas fa-sun"></i> <!-- Sun icon for light mode indication -->
-          <i class="fas fa-moon"></i> <!-- Moon icon for dark mode indication -->
-        </button>
-      </nav>
+    <!-- ======================================================== NAV -->
+    <header class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#home" class="nav__logo">Pradip Sapkota</a>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav__menu" id="navMenu">
+                <a href="#about"      class="nav__link">About</a>
+                <a href="#content"    class="nav__link">Content</a>
+                <a href="blog.html"   class="nav__link">Blog</a>
+                <a href="#contact"    class="nav__link">Contact</a>
+                <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" class="nav__cta">
+                    <i class="fab fa-instagram"></i> Follow
+                </a>
+            </nav>
+        </div>
     </header>
 
-    <!-- ============================== Hero Section ============================== -->
-    <section id="home" class="hero-section" aria-label="Introduction">
-      <canvas id="matrix-canvas" class="hero-background-canvas"></canvas>
-      <div class="hero-content"> 
-        <header class="hero-text">
-          <h1 class="animate-typing">Hi, I'm <span class="highlight">Pradip Sapkota</span></h1>
-          <p class="subtitle animate-fade-in-up delay-1s">
-            Cybersecurity Major & Finance Minor.<br />
-            Crafting secure digital solutions & bridging tech with business insights.
-          </p>
-          <div class="hero-buttons animate-fade-in-up delay-2s">
-            <a class="btn btn-primary" href="#projects">View Projects</a>
-            <a class="btn btn-secondary" href="assets/Pradip_Sapkota_Resume.pdf" target="_blank" rel="noopener">My Resume <i class="fas fa-download" aria-hidden="true"></i></a>
-          </div>
-        </header>
-        <figure class="hero-image-container animate-fade-in-right delay-0-5s">
-          <img src="images/Profile.JPG" alt="Portrait of Pradip Sapkota" class="hero-image" loading="lazy"/>
-        </figure>
-      </div>
-      <a href="#about" class="scroll-down-indicator animate-bounce" aria-label="Scroll down">
-        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-      </a>
-    </section>
-
-    <!-- ============================== About Section ============================== -->
-    <section id="about" class="section-padding" aria-labelledby="about-heading">
-      <h2 id="about-heading" class="section-heading animate-on-scroll">
-        <span class="font-hacker">About Me</span>
-      </h2>
-      <div class="about-content animate-on-scroll">
-        <div class="about-text">
-          <p>I’m a passionate and driven student at the <span class="highlight-alt">University of North Texas</span>, majoring in Cybersecurity with a minor in Finance. My academic journey is fueled by a fascination with the intersection of technology and financial systems, aiming to build robust security frameworks and innovative financial tech solutions.</p>
-          <p>I thrive on tackling complex challenges, whether it's dissecting malware, designing secure networks, or analyzing financial data for strategic insights. My goal is to leverage my dual expertise to contribute meaningfully to organizations that value security, innovation, and strategic growth.</p>
-          <p>Beyond academics and projects, I enjoy participating in CTFs, exploring new programming languages, and following financial markets.</p>
-        </div>
-        <figure class="about-image animate-on-scroll delay-0-5s">
-          <img src="images/about-me-graphic.png" alt="Cybersecurity and finance illustration" width="300" height="300" style="border-radius:8px;opacity:.8" loading="lazy"/>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ============================== Skills Section ============================== -->
-    <section id="skills" class="section-padding thm-bg-darker" aria-labelledby="skills-heading">
-      <h2 id="skills-heading" class="section-heading animate-on-scroll">
-        <span class="font-hacker">My Arsenal (Skills)</span>
-      </h2>
-      <div class="skills-grid" role="list">
-        <div class="skill-card animate-on-scroll" role="listitem">
-          <h3><i class="fas fa-terminal" aria-hidden="true"></i> Languages & Scripting</h3>
-          <ul class="skills-list-progress">
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Python</span><span class="skill-percentage">90%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="90"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">C</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Java</span><span class="skill-percentage">75%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="75"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Bash</span><span class="skill-percentage">85%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="85"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">SQL</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">HTML / CSS / JavaScript</span><span class="skill-percentage">80%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="80"></div></div></li>
-          </ul>
-        </div>
-        <div class="skill-card animate-on-scroll delay-0-2s" role="listitem">
-          <h3><i class="fas fa-shield-virus" aria-hidden="true"></i> Cybersecurity</h3>
-          <ul class="skills-list-progress">
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Nessus / OpenVAS</span><span class="skill-percentage">80%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="80"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Burp Suite</span><span class="skill-percentage">85%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="85"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Nmap</span><span class="skill-percentage">90%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="90"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Wireshark</span><span class="skill-percentage">75%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="75"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Metasploit Framework</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Digital Forensics (Autopsy)</span><span class="skill-percentage">65%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="65"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">SIEM (Splunk - Basic)</span><span class="skill-percentage">60%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="60"></div></div></li>
-          </ul>
-        </div>
-        <div class="skill-card animate-on-scroll delay-0-4s" role="listitem">
-          <h3><i class="fas fa-cloud" aria-hidden="true"></i> Cloud & DevOps</h3>
-          <ul class="skills-list-progress">
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">AWS (EC2, S3, IAM)</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Git & GitHub</span><span class="skill-percentage">90%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="90"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Linux (Ubuntu, Kali)</span><span class="skill-percentage">85%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="85"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Docker (Basic)</span><span class="skill-percentage">60%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="60"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Terraform (Learning)</span><span class="skill-percentage">40%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="40"></div></div></li>
-          </ul>
-        </div>
-        <div class="skill-card animate-on-scroll delay-0-6s" role="listitem">
-          <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Finance & Analytics</h3>
-          <ul class="skills-list-progress">
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Financial Modeling (Excel)</span><span class="skill-percentage">80%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="80"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Power BI / Tableau (Basic)</span><span class="skill-percentage">65%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="65"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Risk Assessment</span><span class="skill-percentage">75%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="75"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Investment Analysis (Concepts)</span><span class="skill-percentage">70%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="70"></div></div></li>
-            <li class="skill-item"><div class="skill-info"><span class="skill-name">Bloomberg Terminal (Exposure)</span><span class="skill-percentage">50%</span></div><div class="progress-bar-container"><div class="progress-bar" data-progress="50"></div></div></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== Experience Section ============================== -->
-    <section id="experience" class="section-padding" aria-labelledby="experience-heading">
-      <h2 id="experience-heading" class="section-heading animate-on-scroll">
-        <span class="font-hacker">Career Trajectory</span>
-      </h2>
-      <div class="timeline" role="list">
-        <article class="timeline-item animate-on-scroll" role="listitem">
-          <<div class="timeline-icon" aria-hidden="true"><i class="fas fa-desktop"></i></div>
-          <div class="timeline-content">
-            <h3>IT And Support Support</h3>
-            <p class="experience-details"><em>Midas Stock Broking Company LTD | Apr 2022 – Aug 2022</em></p>
-            <p>Assisted with IT help desk support and software operations, ensuring smooth technical functionality for trading platforms, handling client queries, and performing system maintenance to support daily brokerage activities.</p>
-          </div>
-        </article>
-        <article class="timeline-item animate-on-scroll" role="listitem">
-          <div class="timeline-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></div>
-          <div class="timeline-content">
-            <h3>ABC Position</h3>
-            <p class="experience-details"><em>ABC Company | Jan 2020 – Apr 2023</em></p>
-            <p>Led a team in direct sales and network marketing. Developed strategies for customer acquisition and retention, coordinated team activities, and managed inventory. Awarded "Top Performer" twice.</p>
-          </div>
-        </article>
-        <article class="timeline-item animate-on-scroll" role="listitem">
-          <div class="timeline-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></div>
-          <div class="timeline-content">
-            <h3>XYZ </h3>
-            <p class="experience-details"><em>XYZ | Apr 2022 – Aug 2022</em></p>
-            <p>Assisted with IT help desk support and software operations, ensuring smooth technical functionality for trading platforms, handling client queries, and performing system maintenance to support daily brokerage activities.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================== Projects Section ============================== -->
-    <section id="projects" class="section-padding thm-bg-darker" aria-labelledby="projects-heading">
-      <h2 id="projects-heading" class="section-heading animate-on-scroll">
-        <span class="font-hacker">Featured Projects</span>
-      </h2>
-      <div class="projects-grid" role="list">
-        <article class="project-card animate-on-scroll" role="listitem">
-          <figure class="project-image">
-            <img src="images/vulnx-thumb.png.png" alt="Screenshot of VulnX vulnerability scanner" loading="lazy"/>
-          </figure>
-          <div class="project-content">
-            <h3>VulnX – Vulnerability Scanner</h3>
-            <p class="project-tags"><span class="tag">Python</span> <span class="tag">Nmap</span> <span class="tag">CVE</span> <span class="tag">Reporting</span></p>
-            <p>A custom Python-based scanner that fetches CVEs and analyzes Nmap XML data, generating styled PDF/HTML vulnerability reports.</p>
-            <div class="project-links">
-              <a class="btn btn-primary btn-small" href="https://github.com/pradip676/vulnx" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+    <!-- ======================================================== HERO -->
+    <section class="hero" id="home">
+        <div class="hero__inner">
+            <div class="hero__text">
+                <span class="hero__pill">
+                    <span class="hero__dot"></span>Student to Entrepreneur
+                </span>
+                <h1 class="hero__title">
+                    From Student<br>
+                    <span>to Entrepreneur.</span>
+                </h1>
+                <p class="hero__desc">
+                    I'm documenting the raw, real journey of building businesses,
+                    mastering cybersecurity & tech, and creating a life on my own terms —
+                    while still in school at UNT.
+                </p>
+                <div class="hero__actions">
+                    <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" class="btn btn--primary">
+                        <i class="fab fa-instagram"></i> Follow @pradipreneur
+                    </a>
+                    <a href="#about" class="btn btn--outline">My Story</a>
+                </div>
+                <div class="hero__stats">
+                    <div class="hero__stat">
+                        <span class="hero__stat-num">UNT</span>
+                        <span class="hero__stat-lab">Cybersecurity Major</span>
+                    </div>
+                    <div class="hero__divider"></div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-num">4+</span>
+                        <span class="hero__stat-lab">Projects Built</span>
+                    </div>
+                    <div class="hero__divider"></div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-num">100%</span>
+                        <span class="hero__stat-lab">Building in Public</span>
+                    </div>
+                </div>
             </div>
-          </div>
-        </article>
-        <article class="project-card animate-on-scroll delay-0-2s" role="listitem">
-          <figure class="project-image">
-            <img src="images/hackdome-thumb.png.png" alt="Screenshot of HackDome CTF platform" loading="lazy"/>
-          </figure>
-          <div class="project-content">
-            <h3>HackDome – Multiplayer CTF Platform</h3>
-            <p class="project-tags"><span class="tag">WordPress</span> <span class="tag">AWS</span> <span class="tag">Security</span> <span class="tag">Stripe</span></p>
-            <p>Developed a Capture The Flag platform using WordPress, hosted on AWS with MFA and Stripe integration. Features simulated phishing and SQLi labs.</p>
-            <div class="project-links">
-              <a class="btn btn-primary btn-small" href="https://github.com/pradip676/HackDome-Live-CTF" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+            <div class="hero__visual">
+                <div class="hero__img-wrap">
+                    <div class="hero__glow"></div>
+                    <img src="images/Profile.JPG" alt="Pradip Sapkota" class="hero__img">
+                    <div class="hero__badge">
+                        <span class="hero__badge-dot"></span>
+                        Building in public
+                    </div>
+                </div>
             </div>
-          </div>
-        </article>
-        <article class="project-card animate-on-scroll delay-0-2s" role="listitem">
-          <figure class="project-image">
-            <img src="images/jwks-server.png.png" alt="Screenshot of HackDome CTF platform" loading="lazy"/>
-          </figure>
-          <div class="project-content">
-            <h3>Advanced JWKS Server</h3>
-            <p class="project-tags"><span class="tag">Python</span> <span class="tag">AES Encryption</span> <span class="tag">Security</span> <span class="tag">MySQL Lite</span></p>
-            <p>Developed a secure JWKS server with AES-encrypted RSA keys, Argon2 user registration, JWT auth, logging, and optional rate limiting.</p>
-            <div class="project-links">
-              <a class="btn btn-primary btn-small" href="https://github.com/pradip676/Enhanced-JWKS-Auth-Server" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-            </div>
-          </div>
-        </article>
-        <article class="project-card animate-on-scroll delay-0-4s" role="listitem">
-          <figure class="project-image">
-            <img src="images/cloud-var.png" alt="Screenshot of CloudVaR risk dashboard" loading="lazy"/>
-          </figure>
-          <div class="project-content">
-            <h3>CloudVaR – FinSec Risk Dashboard</h3>
-            <p class="project-tags"><span class="tag">Python</span> <span class="tag">Cloud Security</span> <span class="tag">Finance</span> <span class="tag">Data Viz</span></p>
-            <p>An in-progress platform aiming to integrate financial data (Value at Risk) with cyber threat intelligence and cloud security posture visualization.</p>
-            <div class="project-links">
-              <span class="chip-status">In Progress <i class="fas fa-cogs" aria-hidden="true"></i></span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================== Contact Section ============================== -->
-    <section id="contact" class="section-padding" aria-labelledby="contact-heading">
-      <h2 id="contact-heading" class="section-heading animate-on-scroll">
-        <span class="font-hacker">Get In Touch</span>
-      </h2>
-      <div class="contact-content animate-on-scroll">
-        <p>I’m always excited to connect, discuss new projects, or explore opportunities. <br/>Feel free to reach out!</p>
-        <div class="contact-methods-icons animate-on-scroll delay-0-2s" role="list">
-          <a href="mailto:pradipsapkota279@gmail.com" class="contact-icon-link" aria-label="Email Pradip Sapkota">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" class="contact-icon-link" aria-label="LinkedIn profile of Pradip Sapkota" rel="noopener">
-            <i class="fab fa-linkedin" aria-hidden="true"></i>
-          </a>
-          <a href="https://github.com/pradip676" target="_blank" class="contact-icon-link" aria-label="GitHub profile of Pradip Sapkota" rel="noopener">
-            <i class="fab fa-github" aria-hidden="true"></i>
-          </a>
         </div>
-        <a class="btn btn-primary cta-button animate-on-scroll delay-0-8s" href="mailto:pradipsapkota279@gmail.com" style="margin-top: 2.5rem;">
-          <i class="fas fa-paper-plane" aria-hidden="true"></i> Send me an Email
+        <a href="#about" class="hero__scroll" aria-label="Scroll down">
+            <i class="fas fa-arrow-down"></i>
         </a>
-      </div>
     </section>
 
-    <!-- ============================== Footer ============================== -->
-    <footer class="footer" role="contentinfo">
-      <div class="social-icons" aria-label="Social and contact links">
-         <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" aria-label="LinkedIn profile of Pradip Sapkota" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-         <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub profile of Pradip Sapkota" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
-         <a href="mailto:pradipsapkota279@gmail.com" aria-label="Email Pradip Sapkota"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-     </div>
-     <p class="font-hacker">© <span id="currentYearFooter"></span> Pradip Sapkota. All rights reserved.</p>
-   </footer>
+    <!-- ======================================================== TICKER -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+            <span>STUDENT TO ENTREPRENEUR</span><span class="t-dot">✦</span>
+            <span>CYBERSECURITY</span><span class="t-dot">✦</span>
+            <span>BUILDING IN PUBLIC</span><span class="t-dot">✦</span>
+            <span>FINANCE & WEALTH</span><span class="t-dot">✦</span>
+            <span>MINDSET</span><span class="t-dot">✦</span>
+            <span>CONTENT CREATION</span><span class="t-dot">✦</span>
+            <span>STUDENT TO ENTREPRENEUR</span><span class="t-dot">✦</span>
+            <span>CYBERSECURITY</span><span class="t-dot">✦</span>
+            <span>BUILDING IN PUBLIC</span><span class="t-dot">✦</span>
+            <span>FINANCE & WEALTH</span><span class="t-dot">✦</span>
+            <span>MINDSET</span><span class="t-dot">✦</span>
+            <span>CONTENT CREATION</span><span class="t-dot">✦</span>
+        </div>
+    </div>
 
-    <!-- Scripts -->
-    <script>
-      if (document.getElementById('currentYearFooter')) {
-          document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
-      }
-      const navToggle = document.querySelector('.nav-toggle');
-      const navMenu = document.getElementById('primary-navigation');
-      if(navToggle && navMenu) {
-          navToggle.addEventListener('click', () => {
-              const isOpen = navMenu.classList.toggle('open');
-              navToggle.classList.toggle('active');
-              navToggle.setAttribute('aria-expanded', isOpen);
-              document.body.style.overflow = isOpen ? 'hidden' : '';
-          });
-          navMenu.querySelectorAll('.nav-link').forEach(link => {
-              link.addEventListener('click', () => {
-                  if (navMenu.classList.contains('open')) {
-                      navMenu.classList.remove('open');
-                      navToggle.classList.remove('active');
-                      navToggle.setAttribute('aria-expanded', 'false');
-                      document.body.style.overflow = '';
-                  }
-              });
-          });
-      }
-    </script>
-    <script src="js/script.js" defer></script>
-  </body>
+    <!-- ======================================================== ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about__inner">
+                <div class="about__visual reveal">
+                    <div class="about__img-wrap">
+                        <img src="images/Profile1.JPG" alt="Pradip Sapkota — Entrepreneur journey" class="about__img">
+                        <blockquote class="about__quote">
+                            "The best time to start building was yesterday. The second best time is right now."
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="about__text reveal">
+                    <span class="label">My Story</span>
+                    <h2 class="about__heading">I refused to wait until graduation.</h2>
+                    <p>I'm Pradip — a Cybersecurity &amp; Finance student at the University of North Texas. While most people in my position are grinding to land a corporate job after school, I decided to take a different path.</p>
+                    <p>I started building. Real projects. Real businesses. And I started documenting everything on Instagram so other students could see what's actually possible when you stop waiting for permission.</p>
+                    <p>My edge is sitting at the intersection of <strong>cybersecurity, technology, and finance</strong> — three of the most valuable skill sets of our generation. I'm figuring out how to turn that into something that lasts.</p>
+                    <a href="#content" class="btn btn--dark">See My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== PILLARS -->
+    <section class="pillars">
+        <div class="container">
+            <span class="label centered reveal">What I Create</span>
+            <h2 class="section-title centered reveal">Four pillars. One mission.</h2>
+            <div class="pillars__grid">
+                <div class="pillar reveal">
+                    <span class="pillar__num">01</span>
+                    <div class="pillar__icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Entrepreneurship</h3>
+                    <p>Documenting every step of building — from the initial idea all the way to execution, failure, and the wins that follow.</p>
+                </div>
+                <div class="pillar reveal">
+                    <span class="pillar__num">02</span>
+                    <div class="pillar__icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3>Cybersecurity & Tech</h3>
+                    <p>Making security and technology accessible. In today's world, your digital knowledge is your greatest competitive advantage.</p>
+                </div>
+                <div class="pillar reveal">
+                    <span class="pillar__num">03</span>
+                    <div class="pillar__icon"><i class="fas fa-coins"></i></div>
+                    <h3>Finance & Wealth</h3>
+                    <p>Building multiple income streams, investing strategically, and creating financial freedom — starting as a student.</p>
+                </div>
+                <div class="pillar reveal">
+                    <span class="pillar__num">04</span>
+                    <div class="pillar__icon"><i class="fas fa-brain"></i></div>
+                    <h3>Mindset & Growth</h3>
+                    <p>The habits, systems, and mental frameworks that separate people who build from people who only talk about building.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== FEATURED CONTENT -->
+    <section class="featured" id="content">
+        <div class="container">
+            <div class="featured__head reveal">
+                <div>
+                    <span class="label">Latest Content</span>
+                    <h2 class="section-title" style="margin-bottom:0">What I'm building &amp; writing.</h2>
+                </div>
+                <a href="blog.html" class="btn btn--outline">View All Posts</a>
+            </div>
+            <div class="cards">
+                <article class="card reveal">
+                    <div class="card__img">
+                        <img src="images/vulnx-thumb.png.png" alt="Phishing attacks breakdown" loading="lazy">
+                        <span class="card__tag">Cybersecurity</span>
+                    </div>
+                    <div class="card__body">
+                        <h3>Understanding Phishing Attacks in 2024</h3>
+                        <p>A deep dive into the latest phishing techniques and how to protect yourself and your business.</p>
+                        <a href="blog/post1.html" class="card__link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card reveal">
+                    <div class="card__img">
+                        <img src="images/cloud-var.png" alt="AI in algorithmic trading" loading="lazy">
+                        <span class="card__tag">Finance & Tech</span>
+                    </div>
+                    <div class="card__body">
+                        <h3>The Role of AI in Algorithmic Trading</h3>
+                        <p>How AI is reshaping financial markets — and what every entrepreneur needs to understand about this shift.</p>
+                        <a href="blog/post2.html" class="card__link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card reveal">
+                    <div class="card__img">
+                        <img src="images/jwks-server.png.png" alt="JWKS server project" loading="lazy">
+                        <span class="card__tag">Project</span>
+                    </div>
+                    <div class="card__body">
+                        <h3>Building an Advanced JWKS Auth Server</h3>
+                        <p>How I built a secure authentication server with AES-encrypted RSA keys and Argon2 from the ground up.</p>
+                        <a href="https://github.com/pradip676/Enhanced-JWKS-Auth-Server" target="_blank" rel="noopener" class="card__link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== INSTAGRAM -->
+    <section class="insta-cta">
+        <div class="container">
+            <div class="insta-cta__inner reveal">
+                <div class="insta-cta__left">
+                    <span class="label">Instagram</span>
+                    <h2>Follow the journey <em>in real time.</em></h2>
+                    <p>I document everything on Instagram — the wins, the setbacks, the late nights, the lessons learned. No highlight reel. Just the real entrepreneurial journey of a student building from scratch.</p>
+                    <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" class="btn btn--primary">
+                        <i class="fab fa-instagram"></i> Follow @pradipreneur
+                    </a>
+                </div>
+                <div class="insta-cta__right">
+                    <p class="insta-handle">@pradipreneur</p>
+                    <div class="insta-grid">
+                        <div class="ig-tile ig-tile--accent"><i class="fas fa-fire"></i></div>
+                        <div class="ig-tile">             <i class="fab fa-instagram"></i></div>
+                        <div class="ig-tile ig-tile--accent"><i class="fas fa-lightbulb"></i></div>
+                        <div class="ig-tile">             <i class="fas fa-chart-line"></i></div>
+                        <div class="ig-tile ig-tile--accent"><i class="fas fa-rocket"></i></div>
+                        <div class="ig-tile">             <i class="fas fa-camera"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== NEWSLETTER -->
+    <section class="newsletter" id="newsletter">
+        <div class="container">
+            <div class="newsletter__wrap reveal">
+                <span class="label">Free Newsletter</span>
+                <h2 class="newsletter__title">The Student Entrepreneur Weekly.</h2>
+                <p class="newsletter__sub">Join builders who refuse to wait until graduation. Every week — entrepreneurship insights, tech breakdowns, finance tips, and real updates from my journey. No fluff.</p>
+                <form class="newsletter__form" id="newsletterForm" novalidate>
+                    <div class="newsletter__row">
+                        <input type="email" class="newsletter__input" placeholder="your@email.com" required aria-label="Email address">
+                        <button type="submit" class="btn btn--primary">Subscribe — It's Free</button>
+                    </div>
+                    <p class="newsletter__note"><i class="fas fa-lock"></i> No spam. Unsubscribe anytime.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== CONTACT -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <span class="label reveal">Get in Touch</span>
+            <h2 class="section-title reveal">Let's connect.</h2>
+            <p class="contact__sub reveal">Want to collaborate, talk business ideas, or just connect with a fellow builder? My inbox is open.</p>
+            <div class="contact__grid reveal">
+                <a href="mailto:pradip@pradipsapkota.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div><strong>Email</strong><span>pradip@pradipsapkota.com</span></div>
+                </a>
+                <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <div><strong>Instagram</strong><span>@pradipreneur</span></div>
+                </a>
+                <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" rel="noopener" class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <div><strong>LinkedIn</strong><span>pradipsapkota01</span></div>
+                </a>
+                <a href="https://github.com/pradip676" target="_blank" rel="noopener" class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <div><strong>GitHub</strong><span>pradip676</span></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <span class="footer__logo">Pradip Sapkota</span>
+                    <p>Student. Builder. Entrepreneur.</p>
+                </div>
+                <nav class="footer__nav">
+                    <a href="#about">About</a>
+                    <a href="#content">Content</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="#newsletter">Newsletter</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="footer__social">
+                    <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/pradip676" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:pradip@pradipsapkota.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© <span id="yr"></span> Pradip Sapkota. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
 </html>

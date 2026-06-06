@@ -1,133 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog - Pradip Sapkota</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Consider updating to 6.5.0 like index.html for consistency -->
-  <link rel="stylesheet" href="css/thm-theme.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Pradip Sapkota</title>
+    <meta name="description" content="Articles on cybersecurity, entrepreneurship, finance, and the student-to-entrepreneur journey by Pradip Sapkota.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <header class="navigation">
-    <a class="nav-brand animate-on-load" href="index.html#home">
-      <span class="font-hacker" style="margin-left: 8px;">Portfolio</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation-blog" aria-expanded="false">
-      <span class="hamburger"></span>
-    </button>
-    <nav id="primary-navigation-blog" class="nav-menu" role="navigation">
-      <a class="nav-link" href="index.html#home">Home</a>
-      <a class="nav-link" href="index.html#about">About</a>
-      <a class="nav-link" href="index.html#skills">Skills</a>
-      <a class="nav-link" href="index.html#experience">Experiences</a>
-      <a class="nav-link" href="index.html#projects">Projects</a>
-      <a class="nav-link active" href="blog.html">Blog</a>
-      <a class="nav-link" href="index.html#contact">Contact</a>
-      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme">
-        <i class="fas fa-sun"></i>
-        <i class="fas fa-moon"></i>
-      </button>
-    </nav>
-  </header>
 
-  <!-- Blog Section -->
-  <main id="blog-main" class="section-padding">
-    <div class="container">
-      <h2 class="section-heading animate-on-scroll">
-        <span class="font-hacker"> My Thoughts & Insights</span>
-      </h2>
-      <p class="animate-on-scroll" style="text-align: center; margin-bottom: 40px;">
-        Welcome to my blog! Here I'll share articles on cybersecurity, finance, tech trends, and project deep-dives.
-      </p>
-      <div class="blog-grid">
-        <article class="blog-post-card animate-on-scroll">
-          <img src="images/blog-post-phishing.png" alt="Phishing concept image" class="blog-post-image">
-          <div class="blog-post-content">
-            <h3 class="blog-post-title">Understanding Phishing Attacks in 2024</h3>
-            <p class="blog-post-meta">Published on: July 26, 2024 <span class="blog-post-category">Cybersecurity</span></p>
-            <p class="blog-post-excerpt">A deep dive into the latest phishing techniques, how to identify them, and crucial steps to protect yourself and your organization...</p>
-            <a href="blog/post1.html" class="btn btn-secondary btn-small">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-        <article class="blog-post-card animate-on-scroll delay-0-2s">
-          <img src="images/blog-post-ai-finance.png" alt="AI in Finance concept image" class="blog-post-image">
-          <div class="blog-post-content">
-            <h3 class="blog-post-title">The Role of AI in Algorithmic Trading</h3>
-            <p class="blog-post-meta">Published on: July 24, 2024 <span class="blog-post-category">Finance & Tech</span></p>
-            <p class="blog-post-excerpt">Exploring how Artificial Intelligence is reshaping financial markets, enhancing trading strategies, and the associated risks...</p>
-            <a href="blog/post2.html" class="btn btn-secondary btn-small">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-        <article class="blog-post-card animate-on-scroll delay-0-4s">
-          <div class="blog-post-content" style="text-align:center; padding: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 300px;">
-            <i class="fas fa-terminal fa-3x" style="margin-bottom: 20px; color: var(--accent-color);"></i>
-            <h3>More Content Coming Soon!</h3>
-            <p>Stay tuned for more articles and insights.</p>
-          </div>
-        </article>
-      </div>
+    <!-- NAV -->
+    <header class="nav scrolled" id="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__logo">Pradip Sapkota</a>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav__menu" id="navMenu">
+                <a href="index.html#about"      class="nav__link">About</a>
+                <a href="index.html#content"    class="nav__link">Content</a>
+                <a href="blog.html"             class="nav__link">Blog</a>
+                <a href="index.html#contact"    class="nav__link">Contact</a>
+                <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" class="nav__cta">
+                    <i class="fab fa-instagram"></i> Follow
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="blog-hero">
+        <span class="label" style="justify-content:center;display:flex;margin-bottom:14px;">Blog</span>
+        <h1 class="blog-hero__title">Thoughts & Insights</h1>
+        <p class="blog-hero__sub">Cybersecurity, entrepreneurship, finance, and the raw journey of building something from scratch.</p>
     </div>
-  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="social-icons" aria-label="Social and contact links">
-      <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" aria-label="LinkedIn profile of Pradip Sapkota" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-      <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub profile of Pradip Sapkota" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
-      <a href="mailto:pradipsapkota279@gmail.com" aria-label="Email Pradip Sapkota"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-  </div>
-    <p class="font-hacker">© <span id="currentYearBlog"></span> Pradip Sapkota. All rights reserved.</p>
-    <!-- Optional: Add back "Built with..." line if desired -->
-    <!-- <p>Built with <i class="fas fa-heart"></i> and a bit of <span class="font-hacker">./code</span></p> -->
-  </footer>
+    <!-- POSTS -->
+    <section class="blog-grid-section">
+        <div class="container">
+            <div class="blog-cards">
+                <article class="card reveal">
+                    <div class="card__img">
+                        <img src="images/vulnx-thumb.png.png" alt="Phishing attacks" loading="lazy">
+                        <span class="card__tag">Cybersecurity</span>
+                    </div>
+                    <div class="card__body">
+                        <h3>Understanding Phishing Attacks in 2024</h3>
+                        <p>A deep dive into the latest phishing techniques, how to identify them, and how to protect yourself and your business.</p>
+                        <a href="blog/post1.html" class="card__link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card reveal">
+                    <div class="card__img">
+                        <img src="images/cloud-var.png" alt="AI in trading" loading="lazy">
+                        <span class="card__tag">Finance & Tech</span>
+                    </div>
+                    <div class="card__body">
+                        <h3>The Role of AI in Algorithmic Trading</h3>
+                        <p>How artificial intelligence is reshaping financial markets, enhancing trading strategies, and the associated risks.</p>
+                        <a href="blog/post2.html" class="card__link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="card reveal">
+                    <div class="card__img" style="display:flex;align-items:center;justify-content:center;background:#EEEDEA;min-height:212px;">
+                        <i class="fas fa-pen-to-square" style="font-size:2.5rem;color:#9A9894;"></i>
+                    </div>
+                    <div class="card__body">
+                        <h3>More Content Coming Soon</h3>
+                        <p>I'm working on new articles about entrepreneurship, security, and the student-to-entrepreneur journey. Stay tuned.</p>
+                        <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" class="card__link">Follow for Updates <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    // Inline JS for elements specific to blog.html
-    if (document.getElementById('currentYearBlog')) {
-        document.getElementById('currentYearBlog').textContent = new Date().getFullYear();
-    }
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <span class="footer__logo">Pradip Sapkota</span>
+                    <p>Student. Builder. Entrepreneur.</p>
+                </div>
+                <nav class="footer__nav">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#content">Content</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="index.html#newsletter">Newsletter</a>
+                    <a href="index.html#contact">Contact</a>
+                </nav>
+                <div class="footer__social">
+                    <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/pradip676" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:pradip@pradipsapkota.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© <span id="yr"></span> Pradip Sapkota. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    // Mobile Navigation Toggle for THIS PAGE (blog.html)
-    const navToggleBlog = document.querySelector('.nav-toggle'); // This targets the button correctly
-    const navMenuBlog = document.getElementById('primary-navigation-blog'); // This targets this page's nav menu
-    if(navToggleBlog && navMenuBlog) {
-        navToggleBlog.addEventListener('click', () => {
-            const isOpen = navMenuBlog.classList.toggle('open');
-            navToggleBlog.classList.toggle('active');
-            navToggleBlog.setAttribute('aria-expanded', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
-
-        navMenuBlog.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenuBlog.classList.contains('open')) {
-                    navMenuBlog.classList.remove('open');
-                    navToggleBlog.classList.remove('active');
-                    navToggleBlog.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-    }
-
-    // Scroll animations for blog page (can be moved to global script.js if preferred)
-    const blogElementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-    const observerBlog = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            }
-        });
-    }, { threshold: 0.1 });
-    blogElementsToAnimate.forEach(el => observerBlog.observe(el));
-  </script>
-
-  <!-- **** ADD THIS LINE TO LOAD THE GLOBAL SCRIPT WITH THEME TOGGLE LOGIC **** -->
-  <script src="js/script.js" defer></script>
-
+    <script src="js/script.js"></script>
 </body>
 </html>

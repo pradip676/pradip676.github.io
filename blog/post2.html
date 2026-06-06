@@ -1,143 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Role of AI in Algorithmic Trading - Pradip Sapkota</title>
-  <meta name="description" content="Exploring how Artificial Intelligence is reshaping financial markets, enhancing trading strategies, and the associated risks." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="../css/thm-theme.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <style> /* Same inline styles as post1.html for consistency */
-    .post-content { line-height: 1.8; }
-    .post-content h3 { margin-top: 2.5em; margin-bottom: 0.8em; color: var(--accent-color-secondary); }
-    .post-content h4 { margin-top: 2em; margin-bottom: 0.6em; color: var(--accent-color); }
-    .post-content ul { list-style: disc; margin-left: 20px; margin-bottom: 1em;}
-    .post-content p { margin-bottom: 1.2em; }
-    .post-meta-single { text-align: center; margin-bottom: 30px; color: var(--text-color-muted); font-family: var(--font-secondary); }
-    .featured-image-single { width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 30px; }
-    .back-to-blog { display: inline-block; margin-bottom: 40px; color: var(--accent-color); font-family: var(--font-secondary); }
-    .back-to-blog:hover { text-decoration: underline; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Role of AI in Algorithmic Trading — Pradip Sapkota</title>
+    <meta name="description" content="Exploring how Artificial Intelligence is reshaping financial markets, enhancing trading strategies, and the associated risks.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <header class="navigation">
-    <a class="nav-brand animate-on-load" href="../index.html#home">
-      <span class="font-hacker" style="margin-left: 8px;">Portfolio</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation-post2" aria-expanded="false">
-      <span class="hamburger"></span>
-    </button>
-    <nav id="primary-navigation-post2" class="nav-menu" role="navigation">
-      <a class="nav-link" href="../index.html#home">Home</a>
-      <a class="nav-link" href="../index.html#about">About</a>
-      <a class="nav-link" href="../index.html#skills">Skills</a>
-      <a class="nav-link" href="../index.html#experience">Experiences</a>
-      <a class="nav-link" href="../index.html#projects">Projects</a>
-      <a class="nav-link" href="../blog.html">Blog</a>
-      <a class="nav-link" href="../index.html#contact">Contact</a>
-      <!-- ADDED THEME TOGGLE BUTTON HERE -->
-      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light and dark theme">
-        <i class="fas fa-sun"></i> <!-- Sun icon for light mode indication -->
-        <i class="fas fa-moon"></i> <!-- Moon icon for dark mode indication -->
-      </button>
-    </nav>
-  </header>
 
-  <main id="single-post" class="section-padding">
-    <div class="container" style="max-width: 800px;">
-        <a href="../blog.html" class="back-to-blog animate-on-scroll"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+    <!-- NAV -->
+    <header class="nav scrolled" id="nav">
+        <div class="nav__inner">
+            <a href="../index.html" class="nav__logo">Pradip Sapkota</a>
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav__menu" id="navMenu">
+                <a href="../index.html#about"   class="nav__link">About</a>
+                <a href="../index.html#content" class="nav__link">Content</a>
+                <a href="../blog.html"          class="nav__link">Blog</a>
+                <a href="../index.html#contact" class="nav__link">Contact</a>
+                <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" class="nav__cta">
+                    <i class="fab fa-instagram"></i> Follow
+                </a>
+            </nav>
+        </div>
+    </header>
 
-        <h1 class="section-heading animate-on-scroll" style="text-align: left; font-size: 2.5rem; margin-bottom: 0.5em;">The Role of AI in Algorithmic Trading</h1>
-        <p class="post-meta-single animate-on-scroll">Published on: July 24, 2024 | Category: <span class="highlight-alt">Finance & Tech</span></p>
-        
-        <img src="../images/blog-post-ai-finance.png" alt="AI in Finance concept image" class="featured-image-single animate-on-scroll">
-
-        <article class="post-content animate-on-scroll">
-            <p>Algorithmic trading, the use of computer programs to execute trades at high speeds, has long been a staple in financial markets. However, the integration of Artificial Intelligence (AI) and Machine Learning (ML) is taking it to a new level. AI algorithms can analyze vast amounts of data, identify complex patterns, and make trading decisions with a level of sophistication and speed previously unattainable. This post explores how AI is transforming algorithmic trading, its benefits, and the challenges it presents.</p>
-
-            <h3>How AI Enhances Algorithmic Trading:</h3>
-            <h4>1. Predictive Analytics & Pattern Recognition:</h4>
-            <p>AI, particularly ML models like neural networks and support vector machines, excels at sifting through historical market data, news sentiment, social media trends, and macroeconomic indicators to predict future price movements. These models can uncover subtle correlations and patterns that human traders might miss.</p>
-
-            <h4>2. Sentiment Analysis:</h4>
-            <p>Natural Language Processing (NLP), a subfield of AI, allows algorithms to analyze news articles, social media posts, and financial reports to gauge market sentiment towards a particular asset or the market as a whole. This sentiment can be a powerful short-term trading signal.</p>
-
-            <h4>3. High-Frequency Trading (HFT) Optimization:</h4>
-            <p>AI can optimize HFT strategies by dynamically adjusting to changing market microstructures, predicting order book imbalances, and minimizing execution latency. Reinforcement learning models can learn optimal trading behaviors through trial and error in simulated environments.</p>
-
-            <h4>4. Risk Management:</h4>
-            <p>AI algorithms can monitor portfolios in real-time, identify potential risks based on complex market scenarios, and automatically execute hedging strategies or adjust positions to mitigate losses. They can also detect anomalous trading activity that might indicate fraud or market manipulation.</p>
-
-            <h3>Benefits of AI in Algorithmic Trading:</h3>
-            <ul>
-                <li><strong>Increased Efficiency and Speed:</strong> AI can process data and execute trades far faster than humans.</li>
-                <li><strong>Improved Accuracy:</strong> ML models can lead to more accurate predictions and trading decisions.</li>
-                <li><strong>Adaptability:</strong> AI systems can learn and adapt to changing market conditions.</li>
-                <li><strong>Reduced Emotional Bias:</strong> AI makes decisions based on data and predefined rules, eliminating human emotions like fear and greed.</li>
-                <li><strong>Scalability:</strong> AI-driven strategies can be applied across a wide range of assets and markets.</li>
-            </ul>
-
-            <h3>Challenges and Risks:</h3>
-            <ul>
-                <li><strong>Data Dependency & Overfitting:</strong> AI models are only as good as the data they are trained on. Poor quality data or overfitting (where a model performs well on training data but poorly on new data) can lead to significant losses.</li>
-                <li><strong>"Black Box" Problem:</strong> Some complex AI models, like deep neural networks, can be difficult to interpret, making it hard to understand why they make certain trading decisions. This lack of transparency can be a regulatory concern.</li>
-                <li><strong>Market Impact & Systemic Risk:</strong> The widespread use of similar AI strategies could potentially lead to increased market volatility or flash crashes if many algorithms react similarly to the same event.</li>
-                <li><strong>Ethical Concerns & Bias:</strong> AI models can inadvertently learn biases present in historical data, leading to unfair or discriminatory trading outcomes.</li>
-                <li><strong>Cybersecurity Risks:</strong> AI trading systems are valuable targets for cyberattacks. Compromised AI could lead to rogue trading or theft of sensitive algorithmic strategies.</li>
-            </ul>
-            
-            <h3>The Future:</h3>
-            <p>AI is undeniably shaping the future of algorithmic trading. As AI technology continues to advance, we can expect even more sophisticated applications in areas like automated portfolio construction, advanced fraud detection, and hyper-personalized investment advice. However, careful consideration of the risks and a strong regulatory framework will be essential to harness its full potential responsibly.</p>
-        </article>
+    <!-- POST HERO -->
+    <div class="post-hero">
+        <span class="card__tag">Finance &amp; Tech</span>
+        <h1 class="post-hero__title">The Role of AI in Algorithmic Trading</h1>
+        <p class="post-hero__meta">July 24, 2024 · 10 min read</p>
     </div>
-  </main>
 
-  <footer class="footer">
-    <div class="social-icons" aria-label="Social and contact links">
-        <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" aria-label="LinkedIn profile of Pradip Sapkota" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-        <a href="https://github.com/pradip676" target="_blank" aria-label="GitHub profile of Pradip Sapkota" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i></a>
-        <a href="mailto:pradipsapkota279@gmail.com" aria-label="Email Pradip Sapkota"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-    </div>
-    <p class="font-hacker">© <span id="currentYearSinglePost2"></span> Pradip Sapkota. All rights reserved.</p>
-  </footer>
+    <!-- POST BODY -->
+    <article class="post-body">
+        <a href="../blog.html" class="post-back"><i class="fas fa-arrow-left"></i> Back to Blog</a>
 
-  <script>
-    if (document.getElementById('currentYearSinglePost2')) {
-        document.getElementById('currentYearSinglePost2').textContent = new Date().getFullYear();
-    }
-    const navTogglePost2 = document.querySelector('.nav-toggle');
-    const navMenuPost2 = document.getElementById('primary-navigation-post2');
-    if(navTogglePost2 && navMenuPost2) {
-        navTogglePost2.addEventListener('click', () => {
-            const isOpen = navMenuPost2.classList.toggle('open');
-            navTogglePost2.classList.toggle('active');
-            navTogglePost2.setAttribute('aria-expanded', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
-        navMenuPost2.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenuPost2.classList.contains('open')) {
-                    navMenuPost2.classList.remove('open');
-                    navTogglePost2.classList.remove('active');
-                    navTogglePost2.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-    }
-    const postElementsToAnimate2 = document.querySelectorAll('.animate-on-scroll');
-    const observerPost2 = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            }
-        });
-    }, { threshold: 0.1 });
-    postElementsToAnimate2.forEach(el => observerPost2.observe(el));
-  </script>
-  <script src="../js/script.js" defer></script>
+        <p>Algorithmic trading — the use of computer programs to execute trades at high speeds — has long been a staple in financial markets. But the integration of Artificial Intelligence (AI) and Machine Learning (ML) is taking it to a completely new level. AI algorithms can analyze vast amounts of data, identify complex patterns, and make trading decisions with a level of sophistication and speed previously unattainable. Here's how AI is transforming algorithmic trading and what it means for the future.</p>
+
+        <h2>How AI Enhances Algorithmic Trading</h2>
+
+        <h3>1. Predictive Analytics & Pattern Recognition</h3>
+        <p>AI, particularly ML models like neural networks and support vector machines, excels at sifting through historical market data, news sentiment, social media trends, and macroeconomic indicators to predict future price movements. These models can uncover subtle correlations and patterns that human traders would miss entirely.</p>
+
+        <h3>2. Sentiment Analysis</h3>
+        <p>Natural Language Processing (NLP) allows algorithms to analyze news articles, social media posts, and financial reports to gauge market sentiment towards a particular asset or the market as a whole. This sentiment can be a powerful short-term trading signal — something entirely inaccessible to traditional quantitative methods.</p>
+
+        <h3>3. High-Frequency Trading Optimization</h3>
+        <p>AI can optimize HFT strategies by dynamically adjusting to changing market microstructures, predicting order book imbalances, and minimizing execution latency. Reinforcement learning models can learn optimal trading behaviors through trial and error in simulated environments before ever touching real capital.</p>
+
+        <h3>4. Risk Management</h3>
+        <p>AI algorithms can monitor portfolios in real-time, identify potential risks based on complex market scenarios, and automatically execute hedging strategies or adjust positions to mitigate losses. They can also detect anomalous trading activity that might indicate fraud or market manipulation before a human analyst would even notice.</p>
+
+        <h2>Benefits</h2>
+        <ul>
+            <li><strong>Speed:</strong> AI can process data and execute trades far faster than any human.</li>
+            <li><strong>Accuracy:</strong> ML models lead to more accurate predictions and data-driven decisions.</li>
+            <li><strong>Adaptability:</strong> AI systems learn and adapt to changing market conditions in real time.</li>
+            <li><strong>No emotional bias:</strong> AI makes decisions based on data alone, eliminating fear and greed.</li>
+            <li><strong>Scalability:</strong> AI-driven strategies can be applied across a wide range of assets and markets simultaneously.</li>
+        </ul>
+
+        <h2>Challenges and Risks</h2>
+        <ul>
+            <li><strong>Data dependency &amp; overfitting:</strong> AI models are only as good as the data they're trained on. Overfitting can lead to significant losses in live markets.</li>
+            <li><strong>The "black box" problem:</strong> Complex models like deep neural networks are difficult to interpret, creating regulatory and transparency concerns.</li>
+            <li><strong>Systemic risk:</strong> Widespread use of similar AI strategies could lead to increased market volatility — or even flash crashes — if many algorithms react identically to the same event.</li>
+            <li><strong>Cybersecurity risk:</strong> AI trading systems are high-value targets for cyberattacks. Compromised systems could result in rogue trading or theft of proprietary strategies.</li>
+        </ul>
+
+        <h2>What This Means Going Forward</h2>
+        <p>AI is undeniably shaping the future of financial markets. As the technology advances, we can expect even more sophisticated applications — from automated portfolio construction to hyper-personalized investment advice. But this also means that financial literacy and tech literacy are no longer separate skills. The entrepreneurs and investors who understand both will have a significant edge.</p>
+        <p>For me personally, this is exactly why I'm building at the intersection of cybersecurity, finance, and tech. The opportunity isn't just in trading — it's in building the tools, platforms, and security infrastructure that the AI-driven financial world will need.</p>
+    </article>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <span class="footer__logo">Pradip Sapkota</span>
+                    <p>Student. Builder. Entrepreneur.</p>
+                </div>
+                <nav class="footer__nav">
+                    <a href="../index.html#about">About</a>
+                    <a href="../index.html#content">Content</a>
+                    <a href="../blog.html">Blog</a>
+                    <a href="../index.html#contact">Contact</a>
+                </nav>
+                <div class="footer__social">
+                    <a href="https://instagram.com/pradipreneur" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/pradipsapkota01/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/pradip676" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:pradip@pradipsapkota.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© <span id="yr"></span> Pradip Sapkota. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
 </body>
 </html>
